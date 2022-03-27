@@ -34,6 +34,7 @@ class JDBCsetup {
             statement.close();
             connection.close();
         } catch(Exception e) {
+            e.printStackTrace();
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
         }
