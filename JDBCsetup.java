@@ -47,6 +47,4 @@ in terminal:
 
 javac className.java
 java -cp "executuableJarPath; executableClassFilePath" className
-
-
 */
