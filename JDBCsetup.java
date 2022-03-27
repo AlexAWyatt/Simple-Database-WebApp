@@ -45,7 +45,7 @@ class JDBCsetup {
 in terminal:
 
 javac className.java
-java -cp executuableJarPath className
+java -cp "executuableJarPath; executableClassFilePath" className
 
 
 */
