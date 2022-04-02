@@ -16,3 +16,16 @@ public class JDBCsetup2 {
     }
     
 }
+
+
+// how to run
+/*
+in terminal:
+
+javac className.java
+java -cp "executuableJarPath; executableClassFilePath" className
+*/
+
+
+// javac JDBCsetup2.java
+// java -cp C:\Users\ctm31\Documents\GitHub\csi2132\postgresql-42.3.3.jar;C:\Users\ctm31\Documents\GitHub\csi2132\JDBCsetup2.java JDBCSetup2
