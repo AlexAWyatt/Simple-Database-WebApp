@@ -2,23 +2,20 @@
 <!--- <html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'index')}"> -->
 
 <body>
+<div class="container">
+  <a href="/" class="lang-logo">
 
-<div class="jumbotron text-center">
-  <div class="container">
-    <a href="/" class="lang-logo">
-
-      <img src="/lang-logo.png"> <!--- CHANGE THIS LOGO TO SOME STOCK PHOTO-->
+    <img src="/lang-logo.png"> <!--- CHANGE THIS LOGO TO SOME STOCK PHOTO-->
       
-    </a>
-    <h1>Smile Dental Clinic - 2132 Csi Blvd.</h1>
-    <p>Our Dental Database Management Application</p>
+  </a>
+  <h1>Smile Dental Clinic - 2132 Csi Blvd.</h1>
+  <p>Our Dental Database Management Application</p>
 
     <!--- CHANGE THESE LINKS TO PROPER PAGES ONCE CREATED!!-->
 
-    <p><a href="target\classes\templates\receptionist.html"> Receptionist UI</a></p>
-    <p><a type="button" class="btn btn-lg btn-default" href="dentisthyg.html"> Dentist & Hygienist UI</a></p>
-    <p><a type="button" class="btn btn-lg btn-default" href="\target\classes\templates\patient.html"> Patient UI</a></p>
-  </div>
+  <p><a href="/receptionist"> Receptionist UI</a></p>
+  <p><a type="button" class="btn btn-lg btn-default" href="/dentisthyg"> Dentist & Hygienist UI</a></p>
+  <p><a type="button" class="btn btn-lg btn-default" href="/patient"> Patient UI</a></p>
 </div>
 
 </body>

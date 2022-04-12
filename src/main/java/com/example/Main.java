@@ -37,6 +37,21 @@ public class Main {
     return "index"; // this function determines what page will be loaded into -- since "index" loads into index.html in src\main\resources\templates
   }
 
+  @RequestMapping("/receptionist")
+  String receptionist() {
+    return "receptionist";
+  }
+
+  @RequestMapping("/dentisthyg")
+  String dentisthyg() {
+    return "dentisthyg";
+  }
+
+  @RequestMapping("/patient")
+  String patient() {
+    return "patient.html";
+  }
+
   @RequestMapping("/db")
   String db(Map<String, Object> model) {
     try (Connection connection = dataSource.getConnection()) {
