@@ -49,7 +49,7 @@ public class Main {
 
   @RequestMapping("/patient")
   String patient() {
-    return "patient.html";
+    return "patient";
   }
 
   @RequestMapping("/db")
