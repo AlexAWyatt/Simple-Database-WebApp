@@ -34,7 +34,7 @@ public class Main {
 
   @RequestMapping("/")
   String index() {
-    return "db";
+    return "index"; // this function determines what page will be loaded into -- since "index" loads into index.html in src\main\resources\templates
   }
 
   @RequestMapping("/db")
