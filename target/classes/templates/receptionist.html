@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 
-<body>
+<html xmlns:th="https://www.thymeleaf.org">
 
-<html> <head></html><h1>Receptionist UI</h1></head>
+<body>
+<head>
+  <title>Receptionist UI</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
 
 <div class="container">
   
@@ -27,11 +31,12 @@
 
 <p>Test the other form below</p>
 <body>
-  <form action="/action_page.php">
-    <label for="username">Username: </label>
-    <input type="text" id="username" name="username"><br>
-    <input type="submit" value="Submit">
+  <form action="#" th:action="@{/patreg}" th:object="${patreg}" method="post">
+    <p>First Name: <input type="text" th:field="*{firstname}" /></p>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
   </form>
+
+  <!--<p th:text="'firstname: ' + ${patreg.firstname}" />-->
 </body>
 </body>
 </html>
