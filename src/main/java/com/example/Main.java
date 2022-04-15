@@ -113,16 +113,20 @@ public class Main {
       ResultSet size = stmt.executeQuery("SELECT COUNT(*) FROM appointment WHERE appointment.patient_id = '" + patID + "';");
       size.next();
       long sizeIt = size.getLong(1);
+
+
       //ResultSet rs2;
 
       //for (int i = 0; i < )
 
       ArrayList<String> output = new ArrayList<String>();
+
+      //TESTING - FIX AND REMOVE
+      output.add(Long.toString(sizeIt));
       
-      while(rs.next()) {
-        output.add(Long.toString(sizeIt));
-        //output.add(rs.getString(3) + rs.getString(4) + rs.getString(5));
-      }
+      //while(rs.next()) {
+      //  output.add(rs.getString(3) + rs.getString(4) + rs.getString(5));
+      //}
 
       m.put("records", output);
 
