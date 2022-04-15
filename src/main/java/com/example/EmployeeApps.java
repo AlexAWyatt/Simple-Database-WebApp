@@ -89,4 +89,12 @@ public class EmployeeApps {
         this.user_id = user_id;
     }
 
+    public Boolean getFurloughed() {
+        return furloughed;
+    }
+
+    public void setFurloughed(Boolean furloughed) {
+        this.furloughed = furloughed;
+    }
+
 }
