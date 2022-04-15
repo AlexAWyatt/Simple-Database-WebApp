@@ -1,3 +1,5 @@
+package com.example;
+
 public class AppointmentApps {
 
     private String appointment_id;
@@ -9,7 +11,7 @@ public class AppointmentApps {
     private String start_time;
     private String end_time;
     private String status;
-    private String assigned_room;
+    private int assigned_room;
 
     public String getAppointment_id() {
         return appointment_id;
@@ -27,11 +29,11 @@ public class AppointmentApps {
         this.appointment_type = appointment_type;
     }
 
-    public String getAssigned_room() {
+    public int getAssigned_room() {
         return assigned_room;
     }
 
-    public void setAssigned_room(String assigned_room) {
+    public void setAssigned_room(int assigned_room) {
         this.assigned_room = assigned_room;
     }
 
