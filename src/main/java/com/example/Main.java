@@ -124,7 +124,7 @@ public class Main {
     return "upcomingappspat";
   }
   
-  @PostMapping("/procedureApps")
+  /*@PostMapping("/procedureApps")
   public String patientAppsSubmit(@ModelAttribute ProcedureApps procedureApps, Model model, Map<String, Object> m) {
     model.addAttribute("procedureApps", procedureApps);
     try (Connection connection = dataSource.getConnection()) {
@@ -145,7 +145,7 @@ public class Main {
       return "error";
     }
     return "procedures_html";
-  }
+  }*/
 
   @Bean
   public DataSource dataSource() throws SQLException {
