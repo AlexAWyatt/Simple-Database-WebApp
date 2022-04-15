@@ -101,9 +101,9 @@ public class Main {
     model.addAttribute("patientApps", patientApps);
     try (Connection connection = dataSource.getConnection()) {
       Statement stmt = connection.createStatement();
-      String patID = patientApps.getPatient_ID();
+      //String patID = patientApps.getPatient_ID();
       //ResultSet rs = stmt.executeQuery("SELECT * FROM appointment WHERE patient_ID = " + patID);
-      ResultSet rs = stmt.executeQuery("SELECT * FROM patient WHERE patient_ID = " + patID);
+      ResultSet rs = stmt.executeQuery("SELECT * FROM patient"); // WHERE patient_ID = " + patID);
 
       ArrayList<String> output = new ArrayList<String>();
       while(rs.next()) {
