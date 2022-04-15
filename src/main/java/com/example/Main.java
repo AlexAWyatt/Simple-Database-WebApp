@@ -108,8 +108,8 @@ public class Main {
       ArrayList<String> output = new ArrayList<String>();
       while(rs.next()) {
         output.add(rs.getString(3));
-        //output.add(rs.getString("Insurance"));
-        //output.add(rs.getString("Email_address"));
+        output.add(rs.getString("Insurance"));
+        output.add(rs.getString("Email_address"));
       }
 
       m.put("records", output);
