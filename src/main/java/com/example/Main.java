@@ -102,7 +102,7 @@ public class Main {
     try (Connection connection = dataSource.getConnection()) {
       Statement stmt = connection.createStatement();
       String patID = patientApps.getPatient_ID();
-      ResultSet rs = stmt.executeQuery("SELECT * FROM appointment WHERE patient.patient_id = '" + patID+ "'");
+      ResultSet rs = stmt.executeQuery("SELECT * FROM appointment WHERE appointment.patient_id = '" + patID + "'");
       //ResultSet rs = stmt.executeQuery("SELECT * FROM patient WHERE patient.patient_id = " + patID);
 
       ArrayList<String> output = new ArrayList<String>();
