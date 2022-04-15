@@ -58,10 +58,10 @@ public class Main {
     return "patient";
   }
 
-  //@RequestMapping("/patreged")
-  //String patreged() {
-  //  return "patreged";
-  //}
+  @RequestMapping("/patientRegistry")
+  String patreged() {
+    return "patientRegistry";
+  }
 
   @RequestMapping("/db")
   String db(Map<String, Object> model) {
