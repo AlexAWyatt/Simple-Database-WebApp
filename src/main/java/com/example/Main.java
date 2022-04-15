@@ -103,16 +103,25 @@ public class Main {
     System.out.println(patientApps.getPatient_ID());
     try (Connection connection = dataSource.getConnection()) {
       Statement stmt = connection.createStatement();
-       ResultSet rs = stmt.executeQuery("SELECT * FROM appointment WHERE appointment.patient_id = '" + patID + "';");
+      ResultSet rs = stmt.executeQuery("SELECT * FROM appointment WHERE appointment.patient_id = '" + patID + "';");
       //ResultSet rs = stmt.executeQuery("SELECT * FROM patient WHERE patient.patient_id = " + patID);
 
       if (isRSEmpty(rs)) {
         return "empty";
-      }
+      } // If no results returned send to empty result page
+
+      ResultSet size = stmt.executeQuery("SELECT COUNT(*) FROM appointment WHERE appointment.patient_id = '" + patID + "';");
+      size.next();
+      long sizeIt = rs.getLong(1);
+      //ResultSet rs2;
+
+      //for (int i = 0; i < )
 
       ArrayList<String> output = new ArrayList<String>();
+      
       while(rs.next()) {
-        output.add(rs.getString(3) + rs.getString(4) + rs.getString(5));
+        output.add(Long.toString(sizeIt));
+        //output.add(rs.getString(3) + rs.getString(4) + rs.getString(5));
       }
 
       m.put("records", output);
