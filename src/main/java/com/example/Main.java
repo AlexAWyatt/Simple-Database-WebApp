@@ -184,7 +184,7 @@ public class Main {
       ArrayList<String> output = new ArrayList<String>();
       
       while(rs.next()) {
-        output.add("*Dentist: " + rs.getString(1)  + rs.getString(2)) ;
+        output.add("*Dentist: " + rs.getString(1) + "      " + rs.getString(2)) ;
       }
 
       m.put("records2", output);
