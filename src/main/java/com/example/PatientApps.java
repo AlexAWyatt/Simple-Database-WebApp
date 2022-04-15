@@ -2,14 +2,14 @@ package com.example;
 
 public class PatientApps {
 
-    private String patient_id;
+    private String patient_ID;
 
     public String getPatient_ID() {
-        return patient_id;
+        return patient_ID;
     }
 
-    public void setPatient_ID(String patient_id) {
-        this.patient_id = patient_id;
+    public void setPatient_ID(String patient_ID) {
+        this.patient_ID = patient_ID;
     }
 
 }
