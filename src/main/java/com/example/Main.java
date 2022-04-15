@@ -184,7 +184,7 @@ public class Main {
       ArrayList<String> output = new ArrayList<String>();
       
       while(rs.next()) {
-        output.add("*Dentist: " + rs.getString(1) + "      " + rs.getString(2)) ;
+        output.add("Dentist: " + rs.getString(1) + "      " + rs.getString(2)) ;
       }
 
       m.put("records2", output);
@@ -194,6 +194,31 @@ public class Main {
       return "error";
     }
     return "branchdentist";
+  }
+
+  @RequestMapping("/approcs")
+  public String approcsSubmit(Map<String, Object> m) {
+    try (Connection connection = dataSource.getConnection()) {
+      Statement stmt = connection.createStatement();
+
+      ResultSet rs = stmt.executeQuery("SELECT procedure_type FROM appointment_procedure;");
+
+      if (isRSEmpty(rs)) {
+        return "empty";
+      }
+
+      ArrayList<String> output = new ArrayList<String>();
+
+      while (rs.next()) {
+        output.add("Procedure Type: " + rs.getString(1));
+      }
+
+      m.put("records3", output);
+    } catch (Exception e) {
+      m.put("message", e.getMessage());
+      return "error";
+    }
+    return "proctype";
   }
 
   @Bean
