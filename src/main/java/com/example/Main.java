@@ -121,7 +121,7 @@ public class Main {
       
       while(rs2.next()) { //rs.next()) {
         rs.next();
-        output.add(rs.getString(3)  + "     " + rs.getString(4)  + "     " + rs.getString(5)  + "     " + rs2.getString(1) + "     " + rs2.getString(2));
+        output.add("Date: " + rs.getString(3)  + "     Start Time: " + rs.getString(7)  + "      End Time: " + rs.getString(8)  +"      Dentist: "+ rs2.getString(1) + "      " + rs2.getString(2) + "      Appointment Type: " + rs.getString(2)+ "      Status: " + rs.getString(9)+ "      Room: " + rs.getString(10));
       }
 
       m.put("records", output);
