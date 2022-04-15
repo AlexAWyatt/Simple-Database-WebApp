@@ -32,7 +32,13 @@ public class Main {
     SpringApplication.run(Main.class, args);
   }
 
-  @RequestMapping("/")
+  // REMOVE THIS OR ADAPT
+  @RequestMapping("/greeting")
+  String greeting() {
+    return "greeting";
+  }
+
+  @RequestMapping("/index")
   String index() {
     return "index"; // this function determines what page will be loaded into -- since "index" loads into index.html in src\main\resources\templates
   }
@@ -51,6 +57,11 @@ public class Main {
   String patient() {
     return "patient";
   }
+
+  //@RequestMapping("/patreged")
+  //String patreged() {
+  //  return "patreged";
+  //}
 
   @RequestMapping("/db")
   String db(Map<String, Object> model) {

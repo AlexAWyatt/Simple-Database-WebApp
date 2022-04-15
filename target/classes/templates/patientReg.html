@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org">
+
+<body>
+<head>
+  <title>Receptionist UI</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<div class="container">
+  
+  <p>Add/Edit Patient Information and Set Patient Appointments</p>
+
+    <!--- CHANGE THESE LINKS TO PROPER PAGES ONCE CREATED!!-->
+
+  <p><a type="button" class="btn btn-lg btn-default" href="/">
+    <span class="glyphicon glyphicon-flash"></span>Return To Homepage</a></p>
+</div>
+
+<head><h2>Patient Registered Successfully</h2></head>
+
+<!--<body>
+  <form>
+    <table>
+      <tr><td>Email Address: </td><td>
+      <input type="text" email=""></td></tr>
+    </table>
+  </form>
+</body>-->
+
+<!---This must be changed to a SQL call that returns the entry to confirm it was added 
+  (or not? if theres time). Would be nice for this to retrieve the added entry so we know its def added
+and also for it to return something if not successfully added-->
+<p th:text="'firstname: ' + ${patientRegistry.firstname}"/>
+
+
+  <!--<p th:text="'firstname: ' + ${patreg.firstname}" />-->
+</body>
+</body>
+</html>

@@ -2,21 +2,18 @@
 
 <html xmlns:th="https://www.thymeleaf.org">
 
-<body>
 <head>
   <title>Receptionist UI</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 
-<div class="container">
+<body>
   
-  <p>Add/Edit Patient Information and Set Patient Appointments</p>
+<p>Add/Edit Patient Information and Set Patient Appointments</p>
 
     <!--- CHANGE THESE LINKS TO PROPER PAGES ONCE CREATED!!-->
 
-  <p><a type="button" class="btn btn-lg btn-default" href="/">
-    <span class="glyphicon glyphicon-flash"></span>Return To Homepage</a></p>
-</div>
+<p><a type="button" class="btn btn-lg btn-default" href="/index">Return To Homepage</a></p>
 
 <head><h2>Register New Patient</h2></head>
 
@@ -30,13 +27,22 @@
 </body>-->
 
 <p>Test the other form below</p>
-<body>
-  <form action="#" th:action="@{/patreg}" th:object="${patreg}" method="post">
-    <p>First Name: <input type="text" th:field="*{firstname}" /></p>
+  <form action="#" th:action="@{/patientRegistry}" th:object="${patientRegistry}" method="post">
+    <p>First Name: <input type="text" th:field="*{firstname}" /> Middle Name: <input type="text" th:field="*{middlename}" /></p>
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
   </form>
 
-  <!--<p th:text="'firstname: ' + ${patreg.firstname}" />-->
-</body>
+  <!--<p th:text="'firstname: ' + ${patreg.firstname}" />
+  
+    <form action="#" th:action="@{/patreg}" th:object="${patreg}" method="post">
+    <p>First Name: <input type="text" th:field="*{firstname}}" /> Middle Name: <input type="text" field="*{middlename}" /></p>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+  </form>
+  
+  <form action="#" th:action="@{/patreg}" th:object="${patreg}" method="post">
+    <p>First Name: <input type="text" th:field="*{firstname}" /> Middle Name: <input type="text" field="*{middlename}" /></p>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+  </form>-->
+
 </body>
 </html>

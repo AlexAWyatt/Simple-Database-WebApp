@@ -3,31 +3,21 @@ package com.example;
 public class PatientRegistry {
 
     private String firstname;
-    private long id;
-    private String content;
+    private String middlename;
 
-    public String getFirstName() {
+    public String getFirstname() {
         return firstname;
     }
 
-    public void setFirstName(String firstname) {
+    public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
 
-    public long getId() {
-        return id;
+    public String getMiddlename() {
+        return middlename;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setMiddlename(String middlename) {
+        this.middlename = middlename;
     }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
 }
