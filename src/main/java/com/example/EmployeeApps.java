@@ -2,31 +2,31 @@ package com.example;
 
 public class EmployeeApps {
 
-    private String employee_id;
-    public String user_id;
-    public String manager_id;
-    private String role;
-    private String employee_type;
-    private Double salary;
-    private String email_work;
-    private String email_personal;
-    private String phone_extension;
-    private boolean furloughed;
+    private static String employee_id;
+    public static String user_id;
+    public static String manager_id;
+    private static String role;
+    private static String employee_type;
+    private static Double salary;
+    private static String email_work;
+    private static String email_personal;
+    private static String phone_extension;
+    private static boolean furloughed;
 
     // taken from user_profile
-    private String first_name;
-    private String last_name;
-    private String middle_name;
-    private String city;
-    private String province;
-    private String street;
-    private String house_number;
-    private String ssn;
-    private String date_of_birth;
-    private String password;
-    private String responsible_party_id;
+    private static String first_name;
+    private static String last_name;
+    private static String middle_name;
+    private static String city;
+    private static String province;
+    private static String street;
+    private static String house_number;
+    private static String ssn;
+    private static String date_of_birth;
+    private static String password;
+    private static String responsible_party_id;
 
-    public String getSsn() {
+    public static String getSsn() {
         return ssn;
     }
 
@@ -34,7 +34,7 @@ public class EmployeeApps {
         this.ssn = ssn;
     }
 
-    public String getProvince() {
+    public static String getProvince() {
         return province;
     }
 
@@ -42,7 +42,7 @@ public class EmployeeApps {
         this.province = province;
     }
 
-    public String getStreet() {
+    public static String getStreet() {
         return street;
     }
 
@@ -50,7 +50,7 @@ public class EmployeeApps {
         this.street = street;
     }
 
-    public String getCity() {
+    public static String getCity() {
         return city;
     }
 
@@ -58,7 +58,7 @@ public class EmployeeApps {
         this.city = city;
     }
 
-    public String getDate_of_birth() {
+    public static String getDate_of_birth() {
         return date_of_birth;
     }
 
@@ -66,7 +66,7 @@ public class EmployeeApps {
         this.date_of_birth = date_of_birth;
     }
 
-    public String getFirst_name() {
+    public static String getFirst_name() {
         return first_name;
     }
 
@@ -74,7 +74,7 @@ public class EmployeeApps {
         this.first_name = first_name;
     }
 
-    public String getHouse_number() {
+    public static String getHouse_number() {
         return house_number;
     }
 
@@ -82,7 +82,7 @@ public class EmployeeApps {
         this.house_number = house_number;
     }
 
-    public String getLast_name() {
+    public static String getLast_name() {
         return last_name;
     }
 
@@ -90,7 +90,7 @@ public class EmployeeApps {
         this.last_name = last_name;
     }
 
-    public String getMiddle_name() {
+    public static String getMiddle_name() {
         return middle_name;
     }
 
@@ -98,7 +98,7 @@ public class EmployeeApps {
         this.middle_name = middle_name;
     }
 
-    public String getPassword() {
+    public static String getPassword() {
         return password;
     }
 
@@ -106,7 +106,7 @@ public class EmployeeApps {
         this.password = password;
     }
 
-    public String getResponsible_party_id() {
+    public static String getResponsible_party_id() {
         return responsible_party_id;
     }
 
@@ -115,7 +115,7 @@ public class EmployeeApps {
     }
 
 
-    public String getEmail_personal() {
+    public static String getEmail_personal() {
         return email_personal;
     }
 
@@ -123,7 +123,7 @@ public class EmployeeApps {
         this.email_personal = email_personal;
     }
 
-    public String getEmail_work() {
+    public static String getEmail_work() {
         return email_work;
     }
 
@@ -131,7 +131,7 @@ public class EmployeeApps {
         this.email_work = email_work;
     }
 
-    public String getEmployee_id() {
+    public static String getEmployee_id() {
         return employee_id;
     }
 
@@ -139,7 +139,7 @@ public class EmployeeApps {
         this.employee_id = employee_id;
     }
 
-    public String getEmployee_type() {
+    public static String getEmployee_type() {
         return employee_type;
     }
 
@@ -147,7 +147,7 @@ public class EmployeeApps {
         this.employee_type = employee_type;
     }
 
-    public String getManager_id() {
+    public static String getManager_id() {
         return manager_id;
     }
     
@@ -157,7 +157,7 @@ public class EmployeeApps {
         this.furloughed = furloughed;
     }
 
-    public String getPhone_extension() {
+    public static String getPhone_extension() {
         return phone_extension;
     }
 
@@ -165,7 +165,7 @@ public class EmployeeApps {
         this.manager_id = manager_id;
     }
 
-    public String getRole() {
+    public static String getRole() {
         return role;
     }
 
@@ -173,7 +173,7 @@ public class EmployeeApps {
         this.phone_extension = phone_extension;
     }
 
-    public Double getSalary() {
+    public static Double getSalary() {
         return salary;
     }
 
@@ -181,7 +181,7 @@ public class EmployeeApps {
         this.role = role;
     }
 
-    public String getUser_id() {
+    public static String getUser_id() {
         return user_id;
     }
 
@@ -193,7 +193,7 @@ public class EmployeeApps {
         this.user_id = user_id;
     }
 
-    public Boolean getFurloughed() {
+    public static Boolean getFurloughed() {
         return furloughed;
     }
 

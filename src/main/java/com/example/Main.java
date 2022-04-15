@@ -152,6 +152,58 @@ public class Main {
     return "receptionist";
   }
 
+  @PostMapping("/employeeApps")
+  public String procedureAppsSubmit(@ModelAttribute EmployeeApps employeeApps, Model model, Map<String, Object> m) {
+    model.addAttribute("employeeApps", employeeApps);
+    try (Connection connection = dataSource.getConnection()) {
+
+      Statement stmt = connection.createStatement();
+
+      String employee_id = EmployeeApps.getEmployee_id();
+
+      String user_id = EmployeeApps.getUser_id();
+      String manager_id = EmployeeApps.getManager_id();
+
+      String role = EmployeeApps.getRole();
+      String employee_type = EmployeeApps.getEmployee_type();
+      double salary = EmployeeApps.getSalary();
+
+      String email_work = EmployeeApps.getEmail_work();
+      String email_personal = EmployeeApps.getEmail_personal();
+
+      String phone_extension = EmployeeApps.getPhone_extension();
+
+      boolean furloughed = EmployeeApps.getFurloughed();
+
+      // taken from user_profile
+      String first_name = EmployeeApps.getFirst_name();
+      String last_name = EmployeeApps.getLast_name();
+
+
+
+      String middle_name = EmployeeApps.getMiddle_name();
+      String city = EmployeeApps.getCity();
+      String province = EmployeeApps.getProvince();;
+      String street =  EmployeeApps.getStreet();
+      String house_number = EmployeeApps.getHouse_number();
+      String ssn = EmployeeApps.getSsn();
+      String date_of_birth = EmployeeApps.getDate_of_birth();
+      String password = EmployeeApps.getPassword();
+      String responsible_party_id = EmployeeApps.getResponsible_party_id();
+
+
+
+
+      ResultSet rs = stmt.executeQuery("INSERT INTO employee VALUES(employee_id, user_id,manager_id, role,employee_type,salary,email_work,email_personal,phone_extension,furloughed"); 
+      ResultSet x = stmt.executeQuery("INSERT INTO user_profile VALUES(...vars)");
+
+    } catch (Exception e) {
+      m.put("message", e.getMessage());
+      return "error";
+    }
+    return "receptionist";
+  }
+
   /*
   @PostMapping("/procedureApps")
   public String procedureAppsSubmit(@ModelAttribute ProcedureApps procedureApps, Model model, Map<String, Object> m) {
