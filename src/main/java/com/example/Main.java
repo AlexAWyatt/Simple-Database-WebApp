@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -98,21 +99,13 @@ public class Main {
   @PostMapping("/patientApps")
   public String patientAppsSubmit(@ModelAttribute PatientApps patientApps, Model model, Map<String, Object> m) {
     model.addAttribute("patientApps", patientApps);
-    String patID = patientApps.getPatient_ID();
-
-    //System.out.println(patientApps.getPatient_ID());
     try (Connection connection = dataSource.getConnection()) {
       Statement stmt = connection.createStatement();
-      ResultSet rs = stmt.executeQuery("SELECT * FROM appointment WHERE appointment.patient_id = '" + patID + "';");
-      //ResultSet rs = stmt.executeQuery("SELECT * FROM patient WHERE patient.patient_id = " + patID);
-
-      if (isRSEmpty(rs)) {
-        return "empty";
-      }
+      //String patID = patientApps.getPatient_ID();
+      //ResultSet rs = stmt.executeQuery("SELECT * FROM appointment WHERE patient_ID = " + patID);
+      ResultSet rs = stmt.executeQuery("SELECT * FROM patient"); // WHERE patient_ID = " + patID);
 
       ArrayList<String> output = new ArrayList<String>();
-
-
       while(rs.next()) {
         output.add(rs.getString(3) + rs.getString("Insurance") + rs.getString("Email_address"));
       }
@@ -125,6 +118,29 @@ public class Main {
     }
     return "upcomingappspat";
   }
+  
+  @PostMapping("/procedureApps")
+  public String patientAppsSubmit(@ModelAttribute ProcedureApps procedureApps, Model model, Map<String, Object> m) {
+    model.addAttribute("procedureApps", procedureApps);
+    try (Connection connection = dataSource.getConnection()) {
+      Statement stmt = connection.createStatement();
+      //String patID = patientApps.getPatient_ID();
+      //ResultSet rs = stmt.executeQuery("SELECT * FROM appointment WHERE patient_ID = " + patID);
+      ResultSet rs = stmt.executeQuery("SELECT procedure_type FROM appointment_procedure"); // WHERE patient_ID = " + patID);
+
+      ArrayList<String> output = new ArrayList<String>();
+      while(rs.next()) {
+        output.add(rs.getString("procedure_type"));
+      }
+
+      m.put("records2", output);
+
+    } catch (Exception e) {
+      m.put("message", e.getMessage());
+      return "error";
+    }
+    return "procedures_html";
+  }
 
   @Bean
   public DataSource dataSource() throws SQLException {
@@ -135,10 +151,6 @@ public class Main {
       config.setJdbcUrl(dbUrl);
       return new HikariDataSource(config);
     }
-  }
-
-  public static boolean isRSEmpty(ResultSet rs) throws SQLException {
-    return (!rs.isBeforeFirst() && rs.getRow() ==0);
   }
 
 }
