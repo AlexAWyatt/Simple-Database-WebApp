@@ -121,7 +121,7 @@ public class Main {
       
       while(rs.next()) {
         rs2.next();
-        output.add(rs.getString(3) + rs.getString(4) + rs.getString(5) + rs2.getString(1));
+        output.add(rs.getString(3) + rs.getString(4) + rs.getString(5) + rs2.getString(0));
       }
 
       m.put("records", output);
