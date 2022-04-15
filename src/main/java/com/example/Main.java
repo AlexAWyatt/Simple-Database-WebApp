@@ -118,6 +118,40 @@ public class Main {
     }
     return "upcomingappspat";
   }
+
+  @PostMapping("/patientRegistry")
+  public String procedureAppsSubmit(@ModelAttribute PatientRegistry patientRegistry, Model model, Map<String, Object> m) {
+    model.addAttribute("patientRegistry", patientRegistry);
+    try (Connection connection = dataSource.getConnection()) {
+
+      Statement stmt = connection.createStatement();
+
+      String patID = patientRegistry.getPatient_id();
+      String userID = patientRegistry.getUser_id();
+      String gender = patientRegistry.getGender();
+      String insurance = patientRegistry.getInsurance();
+      String email_address = patientRegistry.getEmail_address();
+      boolean is_employee = patientRegistry.getIs_employee();
+      boolean is_fifteen = patientRegistry.getIs_fifteen();
+      String responsible_party_id = patientRegistry.getResponsible_party_id();
+
+      //ResultSet rs = stmt.executeQuery("SELECT * FROM appointment WHERE patient_ID = " + patID);
+      ResultSet rs = stmt.executeQuery("INSERT INTO patient VALUES(patId, userID,gender,insurance,email_address,is_employee,is_fifteen,responsible_party_id); // WHERE patient_ID = " + patID);
+
+      //ArrayList<String> output = new ArrayList<String>();
+     // while(rs.next()) {
+       // output.add(rs.getString("procedure_type"));
+     // }
+
+      //m.put("records2", output);
+
+    } catch (Exception e) {
+      m.put("message", e.getMessage());
+      return "error";
+    }
+    return "receptionist";
+  }
+
   /*
   @PostMapping("/procedureApps")
   public String procedureAppsSubmit(@ModelAttribute ProcedureApps procedureApps, Model model, Map<String, Object> m) {

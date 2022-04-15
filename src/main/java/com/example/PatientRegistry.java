@@ -12,13 +12,15 @@ public class PatientRegistry {
 
     private String insurance;
 
-    private String is_employee;
+    private Boolean is_employee;
 
-    private boolean is_fifteen;
+    private Boolean is_fifteen;
 
     private String responsible_party_id;
 
     private String user_id;
+
+    private String patient_id;
 
     // taken from user_profile
 
@@ -41,6 +43,14 @@ public class PatientRegistry {
     private String ssn;
 
     private String street;
+
+    public String getPatient_id() {
+        return patient_id;
+    }
+
+    public void setPatient_id(String patient_id) {
+        this.patient_id = patient_id;
+    }
 
     public String getEmail_address() {
         return email_address;
@@ -66,11 +76,11 @@ public class PatientRegistry {
         this.insurance = insurance;
     }
 
-    public String getIs_employee() {
+    public Boolean getIs_employee() {
         return is_employee;
     }
 
-    public void setIs_employee(String is_employee) {
+    public void setIs_employee(Boolean is_employee) {
         this.is_employee = is_employee;
     }
 
