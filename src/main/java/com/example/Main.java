@@ -187,7 +187,7 @@ public class Main {
         output.add("*Dentist: " + rs.getString(1)  + rs.getString(2)) ;
       }
 
-      m.put("records", output);
+      m.put("records2", output);
 
     } catch (Exception e) {
       m.put("message", e.getMessage());
