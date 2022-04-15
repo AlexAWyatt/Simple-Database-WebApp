@@ -3,44 +3,37 @@ package com.example;
 public class PatientRegistry {
 
     private String firstname;
-
     private String middlename;
-
     private String email_address;
-
     private String gender;
-
     private String insurance;
-
-    private String is_employee;
-
+    private boolean is_employee;
     private boolean is_fifteen;
-
-    private String responsible_party_id;
-
-    private String user_id;
+    private String responsible_party_ID;
+    private String user_ID;
+    private String patient_ID;
 
     // taken from user_profile
 
+
     private String city;
-
     private String date_of_birth;
-
     private String first_name;
-
     private String house_number;
-
     private String last_name;
-
     private String middle_name;
-
     private String password;
-
     private String province;
-
     private String ssn;
-
     private String street;
+
+    public String getPatient_ID() {
+        return patient_ID;
+    }
+
+    public void setPatient_ID(String patient_ID) {
+        this.patient_ID = patient_ID;
+    }
 
     public String getEmail_address() {
         return email_address;
@@ -66,11 +59,11 @@ public class PatientRegistry {
         this.insurance = insurance;
     }
 
-    public String getIs_employee() {
+    public boolean getIs_employee() {
         return is_employee;
     }
 
-    public void setIs_employee(String is_employee) {
+    public void setIs_employee(boolean is_employee) {
         this.is_employee = is_employee;
     }
 
@@ -82,20 +75,20 @@ public class PatientRegistry {
         this.is_fifteen = is_fifteen;
     }
 
-    public String getResponsible_party_id() {
-        return responsible_party_id;
+    public String getResponsible_party_ID() {
+        return responsible_party_ID;
     }
 
-    public void setResponsible_party_id(String responsible_party_id) {
-        this.responsible_party_id = responsible_party_id;
+    public void setResponsible_party_ID(String responsible_party_ID) {
+        this.responsible_party_ID = responsible_party_ID;
     }
 
-    public String getUser_id() {
-        return user_id;
+    public String getUser_ID() {
+        return user_ID;
     }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
+    public void setUser_id(String user_ID) {
+        this.user_ID = user_ID;
     }
 
     public String getCity() {

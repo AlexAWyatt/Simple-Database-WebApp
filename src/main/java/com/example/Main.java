@@ -137,6 +137,84 @@ public class Main {
     }
     return "upcomingappspat";
   }
+
+  @PostMapping("/patientRegistry")
+  public String patientRegistrySubmit(@ModelAttribute PatientRegistry patientRegistry, Model model, Map<String, Object> m) {
+    model.addAttribute("patientRegistry", patientRegistry);
+    try (Connection connection = dataSource.getConnection()) {
+
+      Statement stmt = connection.createStatement();
+
+      String patID = patientRegistry.getPatient_ID();
+      String userID = patientRegistry.getUser_ID();
+      String gender = patientRegistry.getGender();
+      String insurance = patientRegistry.getInsurance();
+      String email_address = patientRegistry.getEmail_address();
+      boolean is_employee = patientRegistry.getIs_employee();
+      boolean is_fifteen = patientRegistry.getIs_fifteen();
+      String responsible_party_ID = patientRegistry.getResponsible_party_ID();
+
+      //ResultSet rs = stmt.executeQuery("SELECT * FROM appointment WHERE patient_ID = " + patID);
+      int rs = stmt.executeUpdate("INSERT INTO patient VALUES(" + patID +"," + userID + "," + gender+ "," +insurance+ "," +email_address+ "," +is_employee+ "," +is_fifteen+ "," +responsible_party_ID + ";)"); // WHERE patient_ID = " + patID);
+
+      if (rs == 0) {
+        throw new Exception("Did not add patient");
+      }
+
+    } catch (Exception e) {
+      m.put("message", e.getMessage());
+      return "error";
+    }
+    return "receptionist";
+  }
+
+  @PostMapping("/employeeApps")
+  public String employeeAppsSubmit(@ModelAttribute EmployeeApps employeeApps, Model model, Map<String, Object> m) {
+    model.addAttribute("employeeApps", employeeApps);
+    try (Connection connection = dataSource.getConnection()) {
+
+      Statement stmt = connection.createStatement();
+
+      String employee_ID = employeeApps.getEmployee_ID();
+
+      String user_ID = employeeApps.getUser_ID();
+      String manager_ID = employeeApps.getManager_ID();
+
+      String role = employeeApps.getRole();
+      String employee_type = employeeApps.getEmployee_type();
+      double salary = employeeApps.getSalary();
+
+      String email_work = employeeApps.getEmail_work();
+      String email_personal = employeeApps.getEmail_personal();
+
+      String phone_extension = employeeApps.getPhone_extension();
+
+      boolean furloughed = employeeApps.getFurloughed();
+
+      // taken from user_profile
+      String first_name = employeeApps.getFirst_name();
+      String last_name = employeeApps.getLast_name();
+
+      String middle_name = employeeApps.getMiddle_name();
+      String city = employeeApps.getCity();
+      String province = employeeApps.getProvince();;
+      String street =  employeeApps.getStreet();
+      String house_number = employeeApps.getHouse_number();
+      String ssn = employeeApps.getSsn();
+      String date_of_birth = employeeApps.getDate_of_birth();
+      String password = employeeApps.getPassword();
+      String responsible_party_id = employeeApps.getResponsible_party_ID();
+
+      int x = stmt.executeUpdate("INSERT INTO user_profile VALUES(...vars)");
+      int rs = stmt.executeUpdate("INSERT INTO employee VALUES(" + employee_ID + "," + user_ID+ "," +manager_ID+ "," + role+ "," +employee_type+ "," +salary+ "," +email_work+ "," +email_personal+ "," +phone_extension+ "," +furloughed +";)"); 
+      
+
+    } catch (Exception e) {
+      m.put("message", e.getMessage());
+      return "error";
+    }
+    return "receptionist";
+  }
   
   /*@PostMapping("/procedureApps")
   public String patientAppsSubmit(@ModelAttribute ProcedureApps procedureApps, Model model, Map<String, Object> m) {
