@@ -107,13 +107,13 @@ public class Main {
 
       ArrayList<String> output = new ArrayList<String>();
       while(rs.next()) {
-         
         output.add(rs.getString("Gender") + rs.getString("Insurance") + rs.getString("Email_address"));
       }
 
       m.put("records", output);
 
     } catch (Exception e) {
+      m.put("message", e.getMessage());
       return "error";
     }
     return "upcomingappspat";
