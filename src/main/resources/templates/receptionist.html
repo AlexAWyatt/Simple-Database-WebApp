@@ -6,16 +6,14 @@
   <title>Receptionist UI</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
-
-<body>
-  
-<p>Add/Edit Patient Information and Set Patient Appointments</p>
+<!--- TESTING COMMENTING THIS OUT  -->
+<!--- <p>Add/Edit Patient Information and Set Patient Appointments</p>-->
 
     <!--- CHANGE THESE LINKS TO PROPER PAGES ONCE CREATED!!-->
 
-<p><a type="button" class="btn btn-lg btn-default" href="/index">Return To Homepage</a></p>
+<!--- <p><a type="button" class="btn btn-lg btn-default" href="/index">Return To Homepage</a></p>
 
-<head><h2>Register New Patient</h2></head>
+<head><h2>Register New Patient</h2></head>-->
 
 <!--<body>
   <form>
@@ -29,7 +27,8 @@
 
 <p>Test the other form below</p>
   <form action="#" th:action="@{/patientRegistry}" th:object="${patientRegistry}" method="post">
-    <p>First Name: <input type="text" th:field="*{firstname}" /> Middle Name: <input type="text" th:field="*{middlename}" /></p>
+    <p>First Name: <input type="text" th:field="*{firstname}" /></p>
+    <p>Middle Name:: <input type="text" th:field="*{middlename}" /></p>
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
   </form>
 

@@ -6,16 +6,14 @@
   <title>Receptionist UI</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
-
-<body>
-  
-<p>Add/Edit Patient Information and Set Patient Appointments</p>
+<!--- TESTING COMMENTING THIS OUT  -->
+<!--- <p>Add/Edit Patient Information and Set Patient Appointments</p>-->
 
     <!--- CHANGE THESE LINKS TO PROPER PAGES ONCE CREATED!!-->
 
-<p><a type="button" class="btn btn-lg btn-default" href="/index">Return To Homepage</a></p>
+<!--- <p><a type="button" class="btn btn-lg btn-default" href="/index">Return To Homepage</a></p>
 
-<head><h2>Register New Patient</h2></head>
+<head><h2>Register New Patient</h2></head>-->
 
 <!--<body>
   <form>
@@ -29,10 +27,36 @@
 
 <p>Test the other form below</p>
   <form action="#" th:action="@{/patientRegistry}" th:object="${patientRegistry}" method="post">
-    <p>First Name: <input type="text" th:field="*{firstname}" /> Middle Name: <input type="text" th:field="*{middlename}" /></p>
+    <p>First Name: <input type="text" th:field="*{firstname}" /></p>
+    <p>Middle Name:: <input type="text" th:field="*{middlename}" /></p>
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
   </form>
 
+
+
+<!-- Add a patient-->
+<form>
+  <table>
+    <tr><td>Patient ID: </td><td>
+    <input type="text" name="patient_id"></td></tr>
+    <tr><td>User ID: </td><td>
+    <input type="text" name="user_id"></td></tr>
+    <tr><td>Gender: </td><td>
+    <input type="text" name="gender"></td></tr>
+    <tr><td>Insurance: </td><td>
+    <input type="text" name="insurance"></td></tr>
+    <tr><td>Email Address: </td><td>
+    <input type="text" name="email"></td></tr>
+    <tr><td>Is Employee: </td><td>
+    <input type="text" name="is_employee"></td></tr>  
+    <tr><td>Is Fifteen: </td><td>
+    <input type="text" name="is_fifteen"></td></tr>
+    <tr><td>Responsible Party ID: </td><td>
+    <input type="text" name="responsible_party_id"></td></tr>
+    
+    
+    <tr><td>
+</form>
 
   <!--<p th:text="'firstname: ' + ${patreg.firstname}" />
   
