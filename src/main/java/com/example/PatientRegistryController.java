@@ -15,6 +15,20 @@ public class PatientRegistryController {
     return "receptionist";
   }
 
+  @PostMapping("/patientRegistry")
+  public String patientRegistrySubmit(@ModelAttribute PatientRegistry patientRegistry, Model model) {
+    model.addAttribute("patientRegistry", patientRegistry);
+    return "patientReg";
+  }
+/*@Controller
+public class PatientRegistryController {
+
+  @GetMapping("/patientRegistry")
+  public String patientRegistryForm(Model model) {
+    model.addAttribute("patientRegistry", new PatientRegistry());
+    return "receptionist";
+  }
+
   // This is the one our submission is going to, better for more data and security
   @PostMapping("/patientRegistry")
   public String patientRegistrySubmit(@ModelAttribute PatientRegistry patientRegistry, Model model) {
@@ -26,6 +40,8 @@ public class PatientRegistryController {
   /*@ModelAttribute("patientRegistry")
   public PatientRegistry loadEmptyModelBean() {
     return new PatientRegistry();
-  }*/
+  }
 
+}*/
 }
+
