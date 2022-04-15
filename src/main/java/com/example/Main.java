@@ -120,6 +120,7 @@ public class Main {
       ArrayList<String> output = new ArrayList<String>();
       
       while(rs.next()) {
+        rs2.next();
         output.add(rs.getString(3) + rs.getString(4) + rs.getString(5) + rs2.getString(1));
       }
 
