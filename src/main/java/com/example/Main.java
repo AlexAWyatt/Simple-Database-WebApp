@@ -112,7 +112,7 @@ public class Main {
 
       ResultSet size = stmt.executeQuery("SELECT COUNT(*) FROM appointment WHERE appointment.patient_id = '" + patID + "';");
       size.next();
-      long sizeIt = rs.getLong(1);
+      long sizeIt = size.getLong(1);
       //ResultSet rs2;
 
       //for (int i = 0; i < )
