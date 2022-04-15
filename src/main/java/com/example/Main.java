@@ -170,30 +170,21 @@ public class Main {
   @PostMapping("/branchEmploy")
   public String branchEmploySubmit(@ModelAttribute BranchEmploy branchEmploy, Model model, Map<String, Object> m) {
     model.addAttribute("branchEmploy", branchEmploy);
-    //String brrID = branchEmploy.getBranch_ID();
+    String brrID = branchEmploy.getBranch_ID();
 
-    System.out.println(branchEmploy.getBranch_ID());
-    /*try (Connection connection = dataSource.getConnection()) {
+    //System.out.println(branchEmploy.getBranch_ID());
+    try (Connection connection = dataSource.getConnection()) {
       Statement stmt = connection.createStatement();
-      ResultSet rs = stmt.executeQuery("SELECT * FROM appointment WHERE appointment.patient_id = '" + patID + "';");
-      //ResultSet rs = stmt.executeQuery("SELECT * FROM patient WHERE patient.patient_id = " + patID);
+      ResultSet rs = stmt.executeQuery("SELECT first_name, last_name FROM userprofile WHERE userprofile.user_id IN (SELECT user_id FROM employee WHERE employee.role = 'Dentist' AND employee_id IN (SELECT employee_id FROM branch WHERE branch.branch_id = '" + brrID + "'));");
 
       if (isRSEmpty(rs)) {
         return "empty";
-      } // If no results returned send to empty result page
-
-     // ResultSet size = stmt.executeQuery("SELECT COUNT(*) FROM appointment WHERE appointment.patient_id = '" + patID + "';");
-      //size.next();
-
-      Statement stmt2 = connection.createStatement();
-
-      ResultSet rs2 = stmt2.executeQuery("SELECT first_name, last_name FROM userprofile WHERE userprofile.user_id IN (SELECT user_id FROM employee WHERE employee.employee_id IN (SELECT employee_id FROM appointment WHERE appointment.patient_id = '" + patID + "'));");
+      }
 
       ArrayList<String> output = new ArrayList<String>();
       
-      while(rs2.next()) { //rs.next()) {
-        rs.next();
-        output.add("*Date: " + rs.getString(3)  + "     *Start Time: " + rs.getString(7)  + "      *End Time: " + rs.getString(8)  +"\n *Dentist: "+ rs2.getString(1) + "      " + rs2.getString(2) + "      *Appointment Type: " + rs.getString(2)+ "      Status: " + rs.getString(9)+ "      Room: " + rs.getString(10));
+      while(rs.next()) {
+        output.add("*Dentist: " + rs.getString(1)  + rs.getString(2)) ;
       }
 
       m.put("records", output);
@@ -201,7 +192,7 @@ public class Main {
     } catch (Exception e) {
       m.put("message", e.getMessage());
       return "error";
-    }*/
+    }
     return "branchdentist";
   }
 
