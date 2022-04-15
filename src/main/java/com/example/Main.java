@@ -10,6 +10,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -82,6 +88,33 @@ public class Main {
       model.put("message", e.getMessage());
       return "error";
     }
+  }
+
+  @GetMapping("/patientApps")
+  public String patientAppsForm(Model model) {
+    model.addAttribute("patientApps", new PatientApps());
+    return "patient";
+  }
+
+  @PostMapping("/patientApps")
+  public String patientAppsSubmit(@ModelAttribute PatientApps patientApps, Model model) {
+    model.addAttribute("patientApps", patientApps);
+    try (Connection connection = dataSource.getConnection()) {
+      Statement stmt = connection.createStatement();
+      String patID = patientApps.getPatient_ID();
+      //ResultSet rs = stmt.executeQuery("SELECT * FROM appointment WHERE patient_ID = " + patID);
+      ResultSet rs = stmt.executeQuery("SELECT * FROM patient WHERE patient_ID = " + patID);
+
+      ArrayList<String> output = new ArrayList<String>();
+      while(rs.next()) {
+         
+        output.add(rs.getString("Gender") + rs.getString("Insurance") + rs.getString("Email_address"));
+      }
+
+    } catch (Exception e) {
+      return "error";
+    }
+    return "UpcomingAppsPat";
   }
 
   @Bean

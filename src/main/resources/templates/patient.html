@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 
+<html xmlns:th="https://www.thymeleaf.org">
+
 <body>
 
 <div class="container">
   <h1>Patient UI</h1>
-  <p>Access personal medical records, view upcoming appointments, schedule appointments, etc.</p>
+  <p>Access personal medical records, view upcoming appointments, schedule appointments</p>
+
 
   <!--- CHANGE THESE LINKS TO PROPER PAGES ONCE CREATED!!-->
 
-  <p><a type="button" class="btn btn-lg btn-default" href="/index"><span class="glyphicon glyphicon-flash"></span>Homepage</a></p>
+  <p><a href="/index"></span>Homepage</a></p>
 </div>
+
+<h1>Check Upcoming Appointments</h1>
+<form action="/patientApps" method="post">
+  <p>Patient ID: <input type="text" id="patient_ID" name="patient_ID" value /></p>
+</form>
+
 
 
 </body>
