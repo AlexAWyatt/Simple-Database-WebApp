@@ -37,12 +37,6 @@ public class Main {
     SpringApplication.run(Main.class, args);
   }
 
-  // REMOVE THIS OR ADAPT
-  @RequestMapping("/greeting")
-  String greeting() {
-    return "greeting";
-  }
-
   @RequestMapping("/index")
   String index() {
     return "index"; // this function determines what page will be loaded into -- since "index" loads into index.html in src\main\resources\templates
