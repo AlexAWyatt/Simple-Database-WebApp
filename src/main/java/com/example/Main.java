@@ -106,7 +106,13 @@ public class Main {
       ResultSet rs = stmt.executeQuery("SELECT * FROM appointment WHERE appointment.patient_id = '" + patID + "';");
       //ResultSet rs = stmt.executeQuery("SELECT * FROM patient WHERE patient.patient_id = " + patID);
 
+      if (isRSEmpty(rs)) {
+        return "empty";
+      }
+
       ArrayList<String> output = new ArrayList<String>();
+
+
       while(rs.next()) {
         output.add(rs.getString(3) + rs.getString("Insurance") + rs.getString("Email_address"));
       }
@@ -129,6 +135,10 @@ public class Main {
       config.setJdbcUrl(dbUrl);
       return new HikariDataSource(config);
     }
+  }
+
+  public static boolean isRSEmpty(ResultSet rs) throws SQLException {
+    return (!rs.isBeforeFirst() && rs.getRow() ==0);
   }
 
 }
