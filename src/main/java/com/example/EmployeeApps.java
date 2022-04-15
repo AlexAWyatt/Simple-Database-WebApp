@@ -48,6 +48,8 @@ public class EmployeeApps {
     public String getManager_id() {
         return manager_id;
     }
+    
+    
 
     public void setFurloughed(boolean furloughed) {
         this.furloughed = furloughed;

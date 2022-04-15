@@ -38,6 +38,14 @@ public class TreatmentApps {
         return symptoms;
     }
 
+    public void setSymptoms(String symptoms) {
+        this.symptoms = symptoms;
+    }
+
+    public boolean getResult() {
+        return result;
+    }
+
     public void setResult(boolean result) {
         this.result = result;
     }
@@ -46,24 +54,20 @@ public class TreatmentApps {
         return tooth_involved;
     }
 
-    public void setSymptoms(String symptoms) {
-        this.symptoms = symptoms;
+    public void setTooth_involved(String tooth_involved) {
+        this.tooth_involved = tooth_involved;
     }
 
     public String getTreatment_id() {
         return treatment_id;
     }
 
-    public void setTooth_involved(String tooth_involved) {
-        this.tooth_involved = tooth_involved;
+    public void setTreatment_id(String treatment_id) {
+        this.treatment_id = treatment_id;
     }
 
     public String getTreatment_type() {
         return treatment_type;
-    }
-
-    public void setTreatment_id(String treatment_id) {
-        this.treatment_id = treatment_id;
     }
 
     public void setTreatment_type(String treatment_type) {
