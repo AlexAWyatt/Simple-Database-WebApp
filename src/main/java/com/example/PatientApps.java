@@ -1,7 +1,5 @@
 package com.example;
 
-import java.util.Set;
-
 public class PatientApps {
 
     private String patient_id;
