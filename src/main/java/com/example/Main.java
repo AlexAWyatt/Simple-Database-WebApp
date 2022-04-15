@@ -99,7 +99,8 @@ public class Main {
   @PostMapping("/patientApps")
   public String patientAppsSubmit(@ModelAttribute PatientApps patientApps, Model model, Map<String, Object> m) {
     model.addAttribute("patientApps", patientApps);
-    try (Connection connection = dataSource.getConnection()) {
+    
+    /*try (Connection connection = dataSource.getConnection()) {
       Statement stmt = connection.createStatement();
       String patID = patientApps.getPatient_ID();
       //ResultSet rs = stmt.executeQuery("SELECT * FROM appointment WHERE patient_ID = " + patID);
@@ -115,7 +116,7 @@ public class Main {
 
     } catch (Exception e) {
       return "error";
-    }
+    }*/
     return "upcomingappspat";
   }
 
