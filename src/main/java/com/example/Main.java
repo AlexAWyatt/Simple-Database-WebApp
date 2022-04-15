@@ -100,10 +100,10 @@ public class Main {
     model.addAttribute("patientApps", patientApps);
     String patID = patientApps.getPatient_ID();
 
-    //System.out.println(patientApps.getPatient_ID());
+    System.out.println(patientApps.getPatient_ID());
     try (Connection connection = dataSource.getConnection()) {
       Statement stmt = connection.createStatement();
-       ResultSet rs = stmt.executeQuery("SELECT * FROM appointment WHERE appointment.patient_id = '" + patID + "'");
+       ResultSet rs = stmt.executeQuery("SELECT * FROM appointment WHERE appointment.patient_id = '" + patID + "';");
       //ResultSet rs = stmt.executeQuery("SELECT * FROM patient WHERE patient.patient_id = " + patID);
 
       if (isRSEmpty(rs)) {
