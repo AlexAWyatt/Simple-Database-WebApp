@@ -115,7 +115,7 @@ public class Main {
 
       ResultSet rs2;
 
-      rs2 = stmt.executeQuery("SELECT first_name, last_name FROM userprofile WHERE user_id IN (SELECT user_id FROM employee WHERE employee_id IN (SELECT employee_id FROM appointment WHERE appointment.patient_id = '" + patID + "'));");
+      rs2 = stmt.executeQuery("SELECT first_name, last_name FROM userprofile WHERE userprofile.user_id IN (SELECT user_id FROM employee WHERE employee.employee_id IN (SELECT employee_id FROM appointment WHERE appointment.patient_id = '" + patID + "'));");
 
       ArrayList<String> output = new ArrayList<String>();
       
