@@ -97,7 +97,7 @@ public class Main {
   }
 
   @PostMapping("/patientApps")
-  public String patientAppsSubmit(@ModelAttribute PatientApps patientApps, Model model) {
+  public String patientAppsSubmit(@ModelAttribute PatientApps patientApps, Model model, Map<String, Object> m) {
     model.addAttribute("patientApps", patientApps);
     try (Connection connection = dataSource.getConnection()) {
       Statement stmt = connection.createStatement();
@@ -111,10 +111,12 @@ public class Main {
         output.add(rs.getString("Gender") + rs.getString("Insurance") + rs.getString("Email_address"));
       }
 
+      m.put("records", output);
+
     } catch (Exception e) {
       return "error";
     }
-    return "UpcomingAppsPat";
+    return "upcomingappspat";
   }
 
   @Bean
