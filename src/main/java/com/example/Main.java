@@ -118,8 +118,8 @@ public class Main {
       ArrayList<String> output = new ArrayList<String>();
       
       while(rs2.next()) { //rs.next()) {
-        //rs2.next();
-        output.add(rs2.getString(1) + "     " + rs2.getString(2));//rs.getString(3) + rs.getString(4) + rs.getString(5) + rs2.getString(0));
+        rs.next();
+        output.add(rs.getString(3)  + "     " + rs.getString(4)  + "     " + rs.getString(5)  + "     " + rs2.getString(1) + "     " + rs2.getString(2));
       }
 
       m.put("records", output);
