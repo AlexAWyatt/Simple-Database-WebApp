@@ -112,7 +112,7 @@ public class Main {
 
       ArrayList<String> output = new ArrayList<String>();
       while(rs.next()) {
-        output.add(rs.getString(3) + rs.getString("Insurance") + rs.getString("Email_address"));
+        output.add(rs.getString(3) + rs.getString(4) + rs.getString(5));
       }
 
       m.put("records", output);
