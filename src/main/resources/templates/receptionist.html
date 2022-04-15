@@ -25,13 +25,14 @@
 </body>-->
 
 
-<p>Test the other form below</p>
-  <form action="#" th:action="@{/patientRegistry}" th:object="${patientRegistry}" method="post">
-    <p>First Name: <input type="text" th:field="*{firstname}" /></p>
-    <p>Middle Name:: <input type="text" th:field="*{middlename}" /></p>
-    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-  </form>
 
+  <body>
+    <h1>Test the other form below</h1>
+    <form action="/patientRegistry" method="post">
+      <p>First Name: <input type="text" id="firstname" name="firstname" value /></p>
+      <p>Middle Name:: <input type="text" id="middlename" name="middlename" value /></p>
+      <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
 
   <!--<p th:text="'firstname: ' + ${patreg.firstname}" />
   
@@ -66,8 +67,6 @@
     <input type="text" name="is_fifteen"></td></tr>
     <tr><td>Responsible Party ID: </td><td>
     <input type="text" name="responsible_party_id"></td></tr>
-    
-    
     <tr><td>
 </form>
 
