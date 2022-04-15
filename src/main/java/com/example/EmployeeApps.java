@@ -7,7 +7,7 @@ public class EmployeeApps {
     public String manager_id;
     private String role;
     private String employee_type;
-    private int salary;
+    private Double salary;
     private String email_work;
     private String email_personal;
     private String phone_extension;
@@ -173,7 +173,7 @@ public class EmployeeApps {
         this.phone_extension = phone_extension;
     }
 
-    public int getSalary() {
+    public Double getSalary() {
         return salary;
     }
 
@@ -185,7 +185,7 @@ public class EmployeeApps {
         return user_id;
     }
 
-    public void setSalary(int salary) {
+    public void setSalary(Double salary) {
         this.salary = salary;
     }
 
