@@ -1,0 +1,55 @@
+--INSERT INTO USERPROFILE (user_id, first_name, middle_name, last_name, date_of_birth, house_number, street, city, province, SSN, password) VALUES ('525271020', 'Bruce','Thomas','Wayne','1940-09-15','1007', 'Mountain Drive','Ottawa','Ontario','223674213','mobileX12')
+--INSERT INTO USERPROFILE (user_id, first_name, middle_name, last_name, date_of_birth, house_number, street, city, province, SSN, password) VALUES ('634152486', 'Taylor','Anne','Hebert','1995-06-19','215', 'Brockton Ave','Toronto','Ontario','223674213','162wat532')
+--INSERT INTO USERPROFILE (user_id, first_name, middle_name, last_name, date_of_birth, phone_number, house_number, street, city, province, SSN, password) VALUES ('843010432', 'Jean','Paul','Vasi','1998-04-01','905-632-3215', '1007','Mountain Drive','Ottawa','Ontario','835326345','112eda562')
+--INSERT INTO USERPROFILE (user_id, first_name, middle_name, last_name, date_of_birth, phone_number, house_number, street, city, province, SSN, password) VALUES ('321546789', 'Kian', 'Axel','Zahrai','2001-01-26', '2011', 'Orleans','Ottawa','Ontario','79117911','csi2132rocks')
+--INSERT INTO USERPROFILE (user_id, first_name, middle_name, last_name, date_of_birth, house_number, street, city, province, SSN, password) VALUES ('999555777', 'Taylor','Anne','Hebert','1995-06-19','215', 'Brockton Ave','Toronto','Ontario','223674213','162wat532')
+--INSERT INTO USERPROFILE (user_id, first_name, middle_name, last_name, date_of_birth, house_number, street, city, province, SSN, password) VALUES ('188939670', 'Hamza', 'sharp','Israr','2001-07-14', '2005', 'London','Ottawa','Ontario','123987555','prologisbad')
+
+--INSERT INTO PATIENT(patient_id, user_id, gender,insurance,email_address, is_employee, is_Fifteen,responsible_party_ID) VALUES ('11211126','525271020','Male','Locasta_Insurance_Company','bruce_w@gmail.com',false,true,'112111264')
+--INSERT INTO PATIENT(patient_id, user_id, gender,insurance,email_address, is_employee, is_Fifteen, responsible_party_ID) VALUES ('883618273','634152486','Female', 'Insure-Me Company','taylor_h@gmail.com',true,true, '468512034')
+--INSERT INTO PATIENT(patient_id, user_id, gender,insurance,email_address, is_employee, is_Fifteen,responsible_party_ID) VALUES ('092563441','843010432','Male','Locasta Insurance Company','jean_p03@gmail.com',false,false, '525271020')
+
+--INSERT INTO Employee(employee_id, user_id,manager_id, role,employee_type,salary,email_work,email_personal,phone_extension,furloughed) VALUES('98723514','634152486','552441231','Dentist','Full-Time',100000.00,'dental_taylor@outlook.com', 'taylor_h@gmail.com','1-905-623-4432',false)
+--INSERT INTO Employee(employee_id, user_id,manager_id, role,employee_type,salary,email_work,email_personal,phone_extension,furloughed) VALUES('123465787','321546789',NULL,'Hygenist','Part-Time',200000.00,'dental_kian@outlook.com', 'kian_z@gmail.com','1-613-222-5555',false)
+--INSERT INTO Employee(employee_id, user_id,manager_id, role,employee_type,salary,email_work,email_personal,phone_extension,furloughed) VALUES('111222333','999555777',NULL,'Dentist','Full-Time',300000.00,'dental_billybobjoe@outlook.com', 'bobjoe@gmail.com','1-905-626-5684',true)
+--INSERT INTO Employee(employee_id, user_id,manager_id, role,employee_type,salary,email_work,email_personal,phone_extension,furloughed) VALUES('987245899','188939670',NULL,'Dental Assistant','Full-Time',600000.00,'dental_assistant@outlook.com', 'hamza_i@gmail.com','1-613-345-9888',false)
+
+--INSERT INTO Appointment(appointment_id,appointment_type,date,Total_fee_charge,patient_id,employee_id,start_time,end_time,status,assigned_room) VALUES('a7989','Extraction','2022-04-10',2500.00, '11211126','111222333','2022-04-10 12:30:00','2022-04-10 13:10:00','Appointment date unchanged, patient will be sedated for the procedure.','101')
+--INSERT INTO Appointment(appointment_id,appointment_type,date,Total_fee_charge,patient_id,employee_id,start_time,end_time,status,assigned_room) VALUES('a3654','Extraction','2022-04-11',2000.00, '883618273','987245899','2022-04-11 10:30:00','2022-04-11 11:30:00','Appointment date unchanged, patient will be sedated for the procedure.','103')
+--INSERT INTO Appointment(appointment_id,appointment_type,date,Total_fee_charge,patient_id,employee_id,start_time,end_time,status,assigned_room) VALUES('a1234','Filling','2022-04-10',2500.00, '11211126', '123465787' ,'2022-04-10 13:30:00','2022-04-10 14:00:00','Appointment date unchanged, patient will be given numbing medication for procedure.','101')
+
+--INSERT INTO BRANCH(branch_id,location_city,num_of_receptionists, manager_id,branch_phone_number,fax_number,hours_of_operation,postal_code) VALUES ('Number_10','Ottawa',2,'552441231','1-087-234-7935','1-666-545-9111','Mon-Fri 9-5','K1N9W2')
+
+--INSERT INTO branch_manager(manager_ID,user_ID) VALUES('552441231','634152486')
+
+--INSERT INTO Medication(medication_rx_number, drug_name, generic_name, notes) VALUES ('0775-1232-45','Tetracycline','Number','Take once per day for two weeks, if pain persists after treatment.')
+--INSERT INTO Medication(medication_rx_number, drug_name, generic_name, notes) VALUES ('6573-9234-86','Midazolam','Sedator','Meant to be used during treatment as a sedator.')
+--INSERT INTO Medication(medication_rx_number, drug_name, generic_name, notes) VALUES ('6692-4858-72','Nitrous Oxide','Oxide','Will be used to sedate patients during treatment.')
+
+--INSERT INTO Invoice(invoice_id, appointment_id, date_of_issue, contact_information, patient_charge, total_fee_charge, penalty, patient_insurance, employee_discount, balance_remaining) VALUES ('i1256', 'a1234', '2022-01-12', 'jean_p03@gmail.com', 2500.00,2500.00, 0.00, 'Locasta Insurance Company', 0.00, 0.00)
+--INSERT INTO Invoice(invoice_id, appointment_id, date_of_issue, contact_information, patient_charge, total_fee_charge, penalty, patient_insurance, employee_discount, balance_remaining) VALUES ('i1250', 'a3654', '2022-02-25', 'taylor_h@gmail.com', 2000.00,2000.00, 1500.00, 'Insure-Me Company', 100.00, 1400.00)
+--INSERT INTO Invoice(invoice_id, appointment_id, date_of_issue, contact_information, patient_charge, total_fee_charge, penalty, patient_insurance, employee_discount, balance_remaining) VALUES ('i1243', 'a7989', '2022-03-04', 'bruce_w@gmail.com', 2500.00,2500.00, 2000.00, 'Locasta_Insurance_Company', 500.00, 0.00)
+
+--INSERT INTO Treatment(treatment_id,treatment_type,tooth_involved,appointment_type,medication_rx_number,symptoms,comments,result) VALUES ('112213456','Tooth Extraction','Wisdom Teeth','Extraction','0775-1232-45','Wisdom teeth coming through, immense pain','Extraction was successful, patient must follow post-operative instructions.',true)
+--INSERT INTO Treatment(treatment_id,treatment_type,tooth_involved,appointment_type,medication_rx_number,symptoms,comments,result) VALUES ('723946123','Cavity Filling','Molars','Filling','6573-9234-86','Sensitive teeth when eating sweets.','5 cavities were filled, patient should pay more attention to their dental health.',true)
+--INSERT INTO Treatment(treatment_id,treatment_type,tooth_involved,appointment_type,medication_rx_number,symptoms,comments,result) VALUES ('728394041','Chipped Tooth','Molar','Filling','6692-4858-72','Patient chipped their tooth from a fall.','Chipped tooth was fixed, however future repairs may be needed.',true)
+
+--INSERT INTO Records_Patient_Charts(patient_id, progress_notes) VALUES ('092563441', 'Molars removed due to stinky breath')
+--INSERT INTO Records_Patient_Charts(patient_id, progress_notes) VALUES ('11211126', 'Pre-Molars have been planned to be removed')
+--INSERT INTO Records_Patient_Charts(patient_id, progress_notes) VALUES ('883618273', 'Cleaning schedule every 6 months')
+
+--INSERT INTO Appointment_Procedure(procedure_ID,appointment_id,patient_id,treatment_id,procedure_code,Tooth_involved,date,procedure_type,description,amount_of_procedure) VALUES('854175949','a7989','11211126','112213456','wisdom121','Wisdom Teeth','2022-04-10 12:30:00','Wisdom Teeth Removal','Three Wisdom Teeth will be removed, patient will be sedated.',3)
+--INSERT INTO Appointment_Procedure(procedure_ID,appointment_id,patient_id,treatment_id,procedure_code,Tooth_involved,date,procedure_type,description,amount_of_procedure) VALUES('365063942','a3654','883618273',723946123,'chipped9','Molars','2022-04-11 10:30:00','Chipped Tooth Repair','Patients chipped tooth will be repaired.',1)
+--INSERT INTO Appointment_Procedure(procedure_ID,appointment_id,patient_id,treatment_id,procedure_code,Tooth_involved,date,procedure_type,description,amount_of_procedure) VALUES('456188887','a3654','883618273',728394041,'chipped9','Molars','2022-04-11 10:30:00','Chipped Tooth Repair','Patients chipped tooth will be repaired.',1)
+ 
+--INSERT INTO Review(patient_id,branch_id,professionalism_of_employees, communication, cleanliness, value) VALUES ('092563441','Number_10', 5, 4, 4, 3)
+--INSERT INTO Review(patient_id,branch_id,professionalism_of_employees, communication, cleanliness, value) VALUES ('11211126','Number_10', 3, 5, 2, 2)
+--INSERT INTO Review(patient_id,branch_id,professionalism_of_employees, communication, cleanliness, value) VALUES ('883618273','Number_10', 5, 5, 5, 1)
+
+--INSERT INTO Patient_Billing_Payment(unique_bill_identifier, claim_id, invoice_ID, patient_portion, insurance_portion, total_amount, insurance_claim, employee_paying, payment_type) VALUES ('u2355', 'c4422', 'i1243', 500.00, 2000.00, 2500.00, 2000.00, 0.00, 'VISA')
+--INSERT INTO Patient_Billing_Payment(unique_bill_identifier, claim_id, invoice_ID, patient_portion, insurance_portion, total_amount, insurance_claim, employee_paying, payment_type) VALUES ('u4526', 'c4423', 'i1250', 200.00, 1500.00, 2000.00, 1500.00, 300.00, 'MasterCard')
+--INSERT INTO Patient_Billing_Payment(unique_bill_identifier, claim_id, invoice_ID, patient_portion, insurance_portion, total_amount, insurance_claim, employee_paying, payment_type) VALUES ('u5623', 'c1133', 'i1256', 0.00, 0.00, 2500.00, 0.00, 2500.00, 'VISA')
+
+--INSERT INTO DISCOUNT(invoice_id,discount_amount,discount_percentage_on_total_amount,discount_type,Discount_expiration_date) VALUES('i1256',0.0,50,'Seasonal','2022-07-10')
+--INSERT INTO DISCOUNT(invoice_id,discount_amount,discount_percentage_on_total_amount,discount_type,Discount_expiration_date) VALUES('i1250',100.00,25,'Promotion','2025-01-01')
+--INSERT INTO DISCOUNT(invoice_id,discount_amount,discount_percentage_on_total_amount,discount_type,Discount_expiration_date) VALUES('i1243',200.00,30.0,'Promotion','2025-01-01')
