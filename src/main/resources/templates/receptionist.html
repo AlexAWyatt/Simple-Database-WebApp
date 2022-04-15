@@ -7,11 +7,11 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <!--- TESTING COMMENTING THIS OUT  -->
-<!--- <p>Add/Edit Patient Information and Set Patient Appointments</p>-->
+<!--- <p>Add/Edit Patient Information and Set Patient Appointments-->
 
     <!--- CHANGE THESE LINKS TO PROPER PAGES ONCE CREATED!!-->
 
-<!--- <p><a type="button" class="btn btn-lg btn-default" href="/index">Return To Homepage</a></p>
+<!--- <p><a type="button" class="btn btn-lg btn-default" href="/index">Return To Homepage</a>
 <head><h2>Register New Patient</h2></head>-->
 
 <!--<body>
@@ -29,13 +29,13 @@
   <!--<p th:text="'firstname: ' + ${patreg.firstname}" />
   
     <form action="#" th:action="@{/patreg}" th:object="${patreg}" method="post">
-    <p>First Name: <input type="text" th:field="*{firstname}}" /> Middle Name: <input type="text" field="*{middlename}" /></p>
-    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    <p>First Name: <input type="text" th:field="*{firstname}}" /> Middle Name: <input type="text" field="*{middlename}" />
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" />
   </form>
   
   <form action="#" th:action="@{/patreg}" th:object="${patreg}" method="post">
-    <p>First Name: <input type="text" th:field="*{firstname}" /> Middle Name: <input type="text" field="*{middlename}" /></p>
-    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    <p>First Name: <input type="text" th:field="*{firstname}" /> Middle Name: <input type="text" field="*{middlename}" />
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" />
   </form>-->
 
 
@@ -44,44 +44,44 @@
 <h1>Add a New Patient</h1>
 <form action="/patientRegistry" method="post">
   <table>
-    <tr><td>Patient ID: </td><td>
-    <input type="text" name="patient_id" id="patient_id"></td></tr>
-    <tr><td>User ID: </td><td>
-    <input type="text" name="user_id" id="user_id"></td></tr>
-    <tr><td>Gender: </td><td>
-    <input type="text" name="gender" id="gender"></td></tr>
-    <tr><td>Insurance: </td><td>
-    <input type="text" name="insurance" id= "insurance"></td></tr>
-    <tr><td>Email Address: </td><td>
-    <input type="text" name="email" id="email"></td></tr>
-    <tr><td>Is Employee: </td><td>
-    <input type="text" name="is_employee" id="is_employee"></td></tr>  
-    <tr><td>Is Fifteen: </td><td>
-    <input type="text" name="is_fifteen" id="is_fifteen"></td></tr>
-    <tr><td>Responsible Party ID: </td><td>
-    <input type="text" name="responsible_party_id" id="responsible_party_id"></td></tr>
-    <tr><td>First Name: </td></tr>
-    <input type="text" name="first_name" id="first_name">
-    <tr><td>Middle Name: </td></tr>
-    <input type="text" name="middle_name" id="middle_name">
-    <tr><td>Last Name: </td></tr>
-    <input type="text" name="last_name" id="last_name">
-    <tr><td>Date of Birth: </td></tr>
-    <input type="text" name="date_of_birth" id="date_of_birth">
-    <tr><td>House Number: </td></tr>
-    <input type="text" name="house_number" id="house_number">
-    <tr><td>Street: </td></tr>
-    <input type="text" name="street" id="street">
-    <tr><td>City: </td></tr>
-    <input type="text" name="city" id="city">
-    <tr><td>Province: </td></tr>
-    <input type="text" name="province" id="province">
-    <tr><td>Social Security Number: </td></tr>
-    <input type="text" name="ssn" id="ssn">
-    <tr><td>Password: </td></tr>
-    <input type="text" name="password" id="password">
-    <tr><td>
-    <input type="submit" value="Submit" /> <input type="reset" value="Reset" /></td></tr>
+    <p><tr><td>Patient ID: </td><td>
+    <input type="text" name="patient_id" id="patient_id"></td></tr></p>
+    <p><tr><td>User ID: </td><td>
+    <input type="text" name="user_id" id="user_id"></td></tr></p>
+    <p><tr><td>Gender: </td><td>
+    <input type="text" name="gender" id="gender"></td></tr></p>
+    <p><tr><td>Insurance: </td><td>
+    <input type="text" name="insurance" id= "insurance"></td></tr></p>
+    <p><tr><td>Email Address: </td><td>
+    <input type="text" name="email" id="email"></td></tr></p>
+    <p><tr><td>Is Employee: </td><td>
+    <input type="text" name="is_employee" id="is_employee"></td></tr>  </p>
+    <p><tr><td>Is Fifteen: </td><td>
+    <input type="text" name="is_fifteen" id="is_fifteen"></td></tr></p>
+    <p><tr><td>Responsible Party ID: </td><td>
+    <input type="text" name="responsible_party_id" id="responsible_party_id"></td></tr></p>
+    <p><tr><td>First Name: </td></tr>
+    <input type="text" name="first_name" id="first_name"></p>
+    <p><tr><td>Middle Name: </td></tr>
+    <input type="text" name="middle_name" id="middle_name"></p>
+    <p><tr><td>Last Name: </td></tr>
+    <input type="text" name="last_name" id="last_name"></p>
+    <p><tr><td>Date of Birth: </td></tr>
+    <input type="text" name="date_of_birth" id="date_of_birth"></p>
+    <p><tr><td>House Number: </td></tr>
+    <input type="text" name="house_number" id="house_number"></p>
+    <p><tr><td>Street: </td></tr>
+    <input type="text" name="street" id="street"></p>
+    <p><tr><td>City: </td></tr>
+    <input type="text" name="city" id="city"></p>
+    <p><tr><td>Province: </td></tr>
+    <input type="text" name="province" id="province"></p>
+    <p><tr><td>Social Security Number: </td></tr>
+    <input type="text" name="ssn" id="ssn"></p>
+    <p><tr><td>Password: </td></tr>
+    <input type="text" name="password" id="password"></p>
+    <p><tr><td>
+    <input type="submit" value="Submit" /> <input type="reset" value="Reset" /></td></tr></p>
 </form>
 
 <!--Add a new employee-->
