@@ -113,15 +113,13 @@ public class Main {
      // ResultSet size = stmt.executeQuery("SELECT COUNT(*) FROM appointment WHERE appointment.patient_id = '" + patID + "';");
       //size.next();
 
-      ResultSet rs2;
-
-      rs2 = stmt.executeQuery("SELECT first_name, last_name FROM userprofile WHERE userprofile.user_id IN (SELECT user_id FROM employee WHERE employee.employee_id IN (SELECT employee_id FROM appointment WHERE appointment.patient_id = '" + patID + "'));");
+      ResultSet rs2 = stmt.executeQuery("SELECT first_name, last_name FROM userprofile WHERE userprofile.user_id IN (SELECT user_id FROM employee WHERE employee.employee_id IN (SELECT employee_id FROM appointment WHERE appointment.patient_id = '" + patID + "'));");
 
       ArrayList<String> output = new ArrayList<String>();
       
-      while(rs.next()) {
-        rs2.next();
-        output.add(rs.getString(3) + rs.getString(4) + rs.getString(5) + rs2.getString(0));
+      while(rs2.next()) { //rs.next()) {
+        //rs2.next();
+        output.add(rs2.getString(0));//rs.getString(3) + rs.getString(4) + rs.getString(5) + rs2.getString(0));
       }
 
       m.put("records", output);
