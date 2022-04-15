@@ -113,7 +113,9 @@ public class Main {
      // ResultSet size = stmt.executeQuery("SELECT COUNT(*) FROM appointment WHERE appointment.patient_id = '" + patID + "';");
       //size.next();
 
-      ResultSet rs2 = stmt.executeQuery("SELECT first_name, last_name FROM userprofile WHERE userprofile.user_id IN (SELECT user_id FROM employee WHERE employee.employee_id IN (SELECT employee_id FROM appointment WHERE appointment.patient_id = '" + patID + "'));");
+      Statement stmt2 = connection.createStatement();
+
+      ResultSet rs2 = stmt2.executeQuery("SELECT first_name, last_name FROM userprofile WHERE userprofile.user_id IN (SELECT user_id FROM employee WHERE employee.employee_id IN (SELECT employee_id FROM appointment WHERE appointment.patient_id = '" + patID + "'));");
 
       ArrayList<String> output = new ArrayList<String>();
       
