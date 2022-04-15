@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+
+<body>
+<div class="container">
+  <h1>Dentists at Branch</h1>
+  <ul th:each="record : ${records}">
+    <li th:text="${record}"/>
+  </ul>
+</div>
+
+</body>
+</html>

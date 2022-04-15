@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org">
+
+<body>
+
+<div class="container">
+  <h1>Branch UI</h1>
+  <p>Enter Branch ID to view all Dentists at chosen branch</p>
+
+
+  <!--- CHANGE THESE LINKS TO PROPER PAGES ONCE CREATED!!-->
+
+  <p><a href="/index"></span>Homepage</a></p>
+</div>
+
+<h1>Check Branch Dentists (Enter Branch ID)</h1>
+<form action="/branchEmploy" method="post">
+  <p>Branch ID: <input type="text" id="branch_ID" name="branch_ID" value /></p>
+  <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
+
+
+
+</body>
+</html>
