@@ -93,9 +93,18 @@ public class Main {
       //size.next();
 
       ArrayList<String> output = new ArrayList<String>();
+
+      String result = null;
       
       while(rs.next()) {
-        output.add("Treatment Type: " + rs.getString(1) + "      Tooth Involved: " + rs.getString(2) + "      Symptoms: " + rs.getString(3) + "      Comments: " + rs.getString(4)+ "      Result: " + rs.getString(5)+ "     medication_rx_number: " + rs.getString(6));
+        if (rs.getString(5) == "t") {
+          result = "Success";
+        }
+        else {
+          result = "Failed";
+        }
+
+        output.add("Treatment Type: " + rs.getString(1) + "      Tooth Involved: " + rs.getString(2) + "      Symptoms: " + rs.getString(3) + "      Comments: " + rs.getString(4)+ "      Result: " + result + "     medication_rx_number: " + rs.getString(6));
       }
 
       m.put("records10", output);
