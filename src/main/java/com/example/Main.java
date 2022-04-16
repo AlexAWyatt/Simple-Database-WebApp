@@ -123,7 +123,7 @@ public class Main {
         output.add("*Date: " + rs.getString(3)  + "     *Start Time: " + rs.getString(7)  + "      *End Time: " + rs.getString(8)  +"\n *Dentist: "+ rs2.getString(1) + "      " + rs2.getString(2) + "      *Appointment Type: " + rs.getString(2)+ "      Status: " + rs.getString(9)+ "      Room: " + rs.getString(10));
       }
 
-      m.put("records", output);
+      m.put("records8", output);
 
     } catch (Exception e) {
       m.put("message", e.getMessage());
@@ -158,7 +158,7 @@ public class Main {
       ArrayList<String> output = new ArrayList<String>();
       
       while(rs.next()) {
-        output.add("Patient: " + rs.getString(1) + "      " + rs.getString(2) + "      User ID" + rs.getString(3));
+        output.add("Patient: " + rs.getString(1) + "      " + rs.getString(2) + "      User ID: " + rs.getString(3));
       }
 
       m.put("records3", output);
@@ -168,6 +168,86 @@ public class Main {
       return "error";
     }
     return "dentpats";
+  }
+
+  @GetMapping("/patientprog")
+  public String patientprogForm(Model model) {
+    model.addAttribute("patientprog", new Patientprog());
+    return "dentpats";
+  }
+
+  @PostMapping("/patientprog")
+  public String patientprogSubmit(@ModelAttribute Patientprog patientprog, Model model, Map<String, Object> m) {
+    model.addAttribute("patientprog", patientprog);
+    String usrID = patientprog.getUser_ID();
+
+    // EDIT ALL BELOW THIS
+
+    //System.out.println(patientApps.getPatient_ID());
+    try (Connection connection = dataSource.getConnection()) {
+      Statement stmt = connection.createStatement();
+      ResultSet rs = stmt.executeQuery("SELECT progress_notes FROM records_patient_charts WHERE records_patient_charts.patient_id IN (SELECT patient_id FROM patient WHERE patient.user_id = '" + usrID + "');");
+
+      if (isRSEmpty(rs)) {
+        return "empty";
+      } // If no results returned send to empty result page
+
+     // ResultSet size = stmt.executeQuery("SELECT COUNT(*) FROM appointment WHERE appointment.patient_id = '" + patID + "';");
+      //size.next();
+
+      ArrayList<String> output = new ArrayList<String>();
+      
+      while(rs.next()) {
+        output.add("Progress Report: " + rs.getString(1));
+      }
+
+      m.put("records4", output);
+
+    } catch (Exception e) {
+      m.put("message", e.getMessage());
+      return "error";
+    }
+    return "dentprogs";
+  }
+
+  @GetMapping("/patientappts")
+  public String patientapptsForm(Model model) {
+    model.addAttribute("patientappts", new Patientappts());
+    return "dentpats";
+  }
+
+  @PostMapping("/patientappts")
+  public String patientapptsSubmit(@ModelAttribute Patientappts patientappts, Model model, Map<String, Object> m) {
+    model.addAttribute("patientappts", patientappts);
+    String usrID = patientappts.getUser_ID();
+
+    // EDIT ALL BELOW THIS
+
+    //System.out.println(patientApps.getPatient_ID());
+    try (Connection connection = dataSource.getConnection()) {
+      Statement stmt = connection.createStatement();
+      ResultSet rs = stmt.executeQuery("SELECT appointment_type, date, status, appointment_id FROM appointment WHERE appointment.patient_id IN (SELECT patient_id FROM patient WHERE patient.user_id = '" + usrID + "');");
+
+      if (isRSEmpty(rs)) {
+        return "empty";
+      } // If no results returned send to empty result page
+
+     // ResultSet size = stmt.executeQuery("SELECT COUNT(*) FROM appointment WHERE appointment.patient_id = '" + patID + "';");
+      //size.next();
+
+      ArrayList<String> output = new ArrayList<String>();
+      
+      while(rs.next()) {
+        output.add("Appointment Type: " + rs.getString(1) + "      Date: " + rs.getString(2) + "      Status: " + rs.getString(3) + "      Appointment ID: " + rs.getString(4));
+      }
+
+      m.put("records5", output);
+
+    } catch (Exception e) {
+      m.put("message", e.getMessage());
+      return "error";
+    }
+    return "dentappts";
   }
 
 
@@ -379,7 +459,7 @@ public class Main {
         output.add("Dentist: " + rs.getString(1) + "      " + rs.getString(2)) ;
       }
 
-      m.put("records2", output);
+      m.put("records6", output);
 
     } catch (Exception e) {
       m.put("message", e.getMessage());
@@ -405,7 +485,7 @@ public class Main {
         output.add("Procedure Type: " + rs.getString(1));
       }
 
-      m.put("records3", output);
+      m.put("records7", output);
     } catch (Exception e) {
       m.put("message", e.getMessage());
       return "error";

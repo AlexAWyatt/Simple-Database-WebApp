@@ -11,21 +11,21 @@
 <!-- Add a patient-->
 <h1>Add a New Patient</h1>
 <form action="/patientRegistry" method="post">
-  <p>Patient ID: <input type="text" name="patient_ID" id="patient_ID" /></p>
-  <p>User ID: <input type="text" name="user_ID" id="user_ID"></p>
-  <p>Gender: <input type="text" name="gender" id="gender" /></p>
+  <p>Patient ID (Normally 9 digits): <input type="text" name="patient_ID" id="patient_ID" /></p>
+  <p>User ID (Normally 9 digits): <input type="text" name="user_ID" id="user_ID"></p>
+  <p>Gender (Full Word, Capitalize First Letter): <input type="text" name="gender" id="gender" /></p>
   <p>Insurance: <input type="text" name="insurance" id= "insurance" /></p><!-- ADD PROPER SYNTAX HERE-->
   <p>Email Address: <input type="text" name="email_address" id="email_address" /></p>
-  <p>Responsible Party ID: <input type="text" name="responsible_party_ID" id="responsible_party_ID" /></p>
+  <p>Responsible Party ID (Normally 9 digits/Empty Allowed): <input type="text" name="responsible_party_ID" id="responsible_party_ID" /></p>
   <p>First Name: <input type="text" name="first_name" id="first_name" /></p>
   <p>Middle Name: <input type="text" name="middle_name" id="middle_name" /></p>
   <p>Last Name: <input type="text" name="last_name" id="last_name" /></p>
-  <p>Date of Birth: <input type="text" name="date_of_birth" id="date_of_birth" /></p> <!-- ADD PROPER SYNTAX HERE-->
-  <p>House Number: <input type="text" name="house_number" id="house_number" /></p>
+  <p>Date of Birth (YYYY-MM-DD): <input type="text" name="date_of_birth" id="date_of_birth" /></p> <!-- ADD PROPER SYNTAX HERE-->
+  <p>House Number (Digits): <input type="text" name="house_number" id="house_number" /></p>
   <p>Street: <input type="text" name="street" id="street" /></p>
   <p>City: <input type="text" name="city" id="city" /></p>
-  <p>Province: <input type="text" name="province" id="province" /></p>
-  <p>Social Security Number: <input type="text" name="ssn" id="ssn" /></p>
+  <p>Province (Full Name): <input type="text" name="province" id="province" /></p>
+  <p>Social Security Number (9 digits, i.e. 123456789): <input type="text" name="ssn" id="ssn" /></p>
   <p>Password: <input type="text" name="password" id="password" /></p>
   <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 </form>
@@ -34,13 +34,13 @@
 <h1>Add a New Employee</h1>
 <form action="/employeeApps" method="post">
   <table>
-    <p>Employee ID: 
+    <p>Employee ID (Normally 9 digits): 
     <input type="text" name="employee_ID" id="employee_ID"></p>
-    <p>User ID: 
+    <p>User ID (Normally 9 digits):  
     <input type="text" name="user_ID" id="user_ID"></p>
-    <p>Manager ID: 
+    <p>Manager ID (Normally 9 digits): 
     <input type="text" name="manager_ID" id="manager_ID"></p>
-    <p>Role: 
+    <p>Role (Dentist, Hygenist, Dental Assistant, Receptionist, Manager): 
     <input type="text" name="role" id="role"></p><!-- ADD PROPER SYNTAX HERE-->
     <p>Salary: 
       <input type="text" name="salary" id="salary"></p>
@@ -60,17 +60,17 @@
     <input type="text" name="middle_name" id="middle_name"></p>
     <p>Last Name: 
     <input type="text" name="last_name" id="last_name"></p>
-    <p>Date of Birth: 
+    <p>Date of Birth (YYYY-MM-DD): 
     <input type="text" name="date_of_birth" id="date_of_birth"></p><!-- ADD PROPER SYNTAX HERE-->
-    <p>House Number: 
+    <p>House Number (Digits): 
     <input type="text" name="house_number" id="house_number"></p>
     <p>Street: 
     <input type="text" name="street" id="street"></p>
     <p>City: 
     <input type="text" name="city" id="city"></p>
-    <p>Province: 
+    <p>Province (Full Name):  
     <input type="text" name="province" id="province"></p>
-    <p>Social Security Number: 
+    <p>Social Security Number (9 digits, i.e. 123456789): 
     <input type="text" name="ssn" id="ssn"></p>
     <p>Password: 
     <input type="text" name="password" id="password"></p>
@@ -83,25 +83,25 @@
 <h1>Set a New Appointment</h1>
 <form action="/appointmentApps" method="post">
   <table>
-    <p>appointment ID: 
+    <p>Appointment ID (starts with letter a, ends with 4 digits): 
     <input type="text" name="appointment_id" id="appointment_id"></p>
-    <p>Appointment Type: 
+    <p>Appointment Type (Chipped Tooth, etc.):
     <input type="text" name="appointment_type" id="appointment_type"></p>
-    <p>Appointment Date: 
+    <p>Appointment Date (YYYY-MM-DD 00:00:00): 
     <input type="text" name="date" id="date"></p>
-    <p>Total Fee Charge: 
+    <p>Total Fee Charge (Ends with decimals, i.e. 100000.00): 
     <input type="text" name="total_fee_charge" id="total_fee_charge"></p>
-    <p>Patient ID: 
+    <p>Patient ID (Normally 9 digits):  
     <input type="text" name="patient_id" id="patient_id"></p>
-    <p>Employee ID: 
+    <p>Employee ID (Normally 9 digits): 
     <input type="text" name="employee_id" id="employee_id"></p>
-    <p>Start Time: 
+    <p>Start Time (YYYY-MM-DD HH:MM:SS): 
     <input type="text" name="start_time" id="start_time"></p>
-    <p>End Time: 
+    <p>End Time (YYYY-MM-DD HH:MM:SS): 
     <input type="text" name="end_time" id="end_time"></p>
-    <p>Status: 
+    <p>Status (No Show, Cancelled, Completed, Unscheduled, Other Comments Allowed): 
     <input type="text" name="status" id="status"></p>
-    <p>Assigned Room: 
+    <p>Assigned Room (Three digit number): 
     <input type="text" name="assigned_room" id="assigned_room"></p>
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
   </table>
