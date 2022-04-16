@@ -161,8 +161,8 @@ public class Main {
       String responsible_party_ID = patientRegistry.getResponsible_party_ID(); // IF TIME CHECK IF USER ID EXISTS
 
       //ResultSet rs = stmt.executeQuery("SELECT * FROM appointment WHERE patient_ID = " + patID);
-      int x = stmt.executeUpdate("INSERT INTO userprofile VALUES(" + userID + "," + first_name+ "," + middle_name+ "," + last_name+ "," + date_of_birth+ "," + house_number+ "," + street+ "," + city+ "," + province+ "," + ssn+ "," + password+ "," + responsible_party_ID + ");");
-      int rs = stmt.executeUpdate("INSERT INTO patient VALUES(" + patID +"," + userID + "," + gender+ "," +insurance+ "," +email_address+ "," +is_employee+ "," +is_fifteen+ "," +responsible_party_ID + ";)"); // WHERE patient_ID = " + patID);
+      int x = stmt.executeUpdate("INSERT INTO userprofile VALUES('" + userID + "','" + first_name+ "','"  + middle_name+ "','"  + last_name+ "','"  + date_of_birth+ "','"  + house_number+ "','"  + street+ "','"  + city+ "','"  + province+ "','"  + ssn+ "','"  + password+ "','"  + responsible_party_ID + ");");
+      int rs = stmt.executeUpdate("INSERT INTO patient VALUES(" + patID +"','"  + userID + "','"  + gender+ "','"  +insurance+ "','"  +email_address+ "','"  +is_employee+ "','"  +is_fifteen+ "','"  +responsible_party_ID + ";)"); // WHERE patient_ID = " + patID);
 
       if (x == 0) {
         throw new Exception("User add failed");
@@ -219,9 +219,16 @@ public class Main {
       String password = employeeApps.getPassword();
       String responsible_party_ID = null;
 
-      int x = stmt.executeUpdate("INSERT INTO userprofile VALUES(" + user_ID + "," + first_name+ "," + middle_name+ "," + last_name+ "," + date_of_birth+ "," + house_number+ "," + street+ "," + city+ "," + province+ "," + ssn+ "," + password+ "," + responsible_party_ID + ");");
-      int rs = stmt.executeUpdate("INSERT INTO employee VALUES(" + employee_ID + "," + user_ID+ "," +manager_ID+ "," + role+ "," +employee_type+ "," +salary+ "," +email_work+ "," +email_personal+ "," +phone_extension+ "," +furloughed +";)"); 
+      int x = stmt.executeUpdate("INSERT INTO userprofile VALUES(" + user_ID + "','"  + first_name+ "','"  + middle_name+ "','"  + last_name+ "','"  + date_of_birth+ "','"  + house_number+ "','"  + street+ "','"  + city+ "','"  + province+ "','"  + ssn+ "','"  + password+ "','"  + responsible_party_ID + ");");
+      int rs = stmt.executeUpdate("INSERT INTO employee VALUES(" + employee_ID + "','"  + user_ID+ "','"  +manager_ID+ "','"  + role+ "','"  +employee_type+ "','"  +salary+ "','"  +email_work+ "','"  +email_personal+ "','"  +phone_extension+ "','"  +furloughed +";)"); 
       
+      if (x == 0) {
+        throw new Exception("User add failed");
+      }
+
+      if (rs == 0) {
+        throw new Exception("Patient add failed.");
+      }
 
     } catch (Exception e) {
       m.put("message", e.getMessage());
