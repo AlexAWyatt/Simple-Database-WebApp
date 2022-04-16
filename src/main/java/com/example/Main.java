@@ -67,7 +67,6 @@ public class Main {
     return "branchui";
   }
 
-
   @GetMapping("/patientapptsme")
   public String patientapptsmeForm(Model model) {
     model.addAttribute("patientapptsme", new Patientapptsme());
