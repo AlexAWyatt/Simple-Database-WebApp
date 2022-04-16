@@ -82,7 +82,7 @@ public class Main {
     //System.out.println(patientApps.getPatient_ID());
     try (Connection connection = dataSource.getConnection()) {
       Statement stmt = connection.createStatement();
-      ResultSet rs = stmt.executeQuery("SELECT appointment_type, date, status, appointment_id FROM appointment WHERE appointment.patient_id = '" + patID + "');");
+      ResultSet rs = stmt.executeQuery("SELECT appointment_type, date, status, appointment_id FROM appointment WHERE appointment.patient_id = '" + patID + "';");
 
       if (isRSEmpty(rs)) {
         return "empty";
@@ -121,7 +121,7 @@ public class Main {
     //System.out.println(patientApps.getPatient_ID());
     try (Connection connection = dataSource.getConnection()) {
       Statement stmt = connection.createStatement();
-      ResultSet rs = stmt.executeQuery("SELECT progress_notes FROM records_patient_charts WHERE records_patient_charts.patient_id = '" + patID + "');");
+      ResultSet rs = stmt.executeQuery("SELECT progress_notes FROM records_patient_charts WHERE records_patient_charts.patient_id = '" + patID + "';");
 
       if (isRSEmpty(rs)) {
         return "empty";
