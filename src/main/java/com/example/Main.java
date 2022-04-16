@@ -118,7 +118,7 @@ public class Main {
     model.addAttribute("patientprogme", patientprogme);
     String patID = patientprogme.getPatient_ID();
 
-    //System.out.println(patientApps.getPatient_ID());
+    //System.out.println(patientprogme.getPatient_ID());
     try (Connection connection = dataSource.getConnection()) {
       Statement stmt = connection.createStatement();
       ResultSet rs = stmt.executeQuery("SELECT progress_notes FROM records_patient_charts WHERE records_patient_charts.patient_id = '" + patID + "';");
