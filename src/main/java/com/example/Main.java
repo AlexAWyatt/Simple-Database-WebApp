@@ -67,6 +67,82 @@ public class Main {
     return "branchui";
   }
 
+
+  @GetMapping("/patientapptsme")
+  public String patientapptsmeForm(Model model) {
+    model.addAttribute("patientapptsme", new Patientapptsme());
+    return "dentpats";
+  }
+
+  @PostMapping("/patientappts")
+  public String patientapptsmeSubmit(@ModelAttribute Patientapptsme patientapptsme, Model model, Map<String, Object> m) {
+    model.addAttribute("patientapptsme", patientapptsme);
+    String patID = patientapptsme.getPatient_ID();
+
+
+    //System.out.println(patientApps.getPatient_ID());
+    try (Connection connection = dataSource.getConnection()) {
+      Statement stmt = connection.createStatement();
+      ResultSet rs = stmt.executeQuery("SELECT appointment_type, date, status, appointment_id FROM appointment WHERE appointment.patient_id = '" + patID + "');");
+
+      if (isRSEmpty(rs)) {
+        return "empty";
+      } // If no results returned send to empty result page
+
+     // ResultSet size = stmt.executeQuery("SELECT COUNT(*) FROM appointment WHERE appointment.patient_id = '" + patID + "';");
+      //size.next();
+
+      ArrayList<String> output = new ArrayList<String>();
+      
+      while(rs.next()) {
+        output.add("Appointment Type: " + rs.getString(1) + "      Date: " + rs.getString(2) + "      Status: " + rs.getString(3) + "      Appointment ID: " + rs.getString(4));
+      }
+
+      m.put("records5", output);
+
+    } catch (Exception e) {
+      m.put("message", e.getMessage());
+      return "error";
+    }
+    return "dentappts";
+  }
+
+
+  @GetMapping("/patientprogme")
+  public String patientprogmeForm(Model model) {
+    model.addAttribute("patientprogme", new Patientprogme()); // Make class
+    return "patient";
+  }
+
+  @PostMapping("/patientprogme")
+  public String patientprogmeSubmit(@ModelAttribute Patientprogme patientprogme, Model model, Map<String, Object> m) {
+    model.addAttribute("patientprogme", patientprogme);
+    String patID = patientprogme.getPatient_ID();
+
+    //System.out.println(patientApps.getPatient_ID());
+    try (Connection connection = dataSource.getConnection()) {
+      Statement stmt = connection.createStatement();
+      ResultSet rs = stmt.executeQuery("SELECT progress_notes FROM records_patient_charts WHERE records_patient_charts.patient_id = '" + patID + "');");
+
+      if (isRSEmpty(rs)) {
+        return "empty";
+      } // If no results returned send to empty result page
+
+      ArrayList<String> output = new ArrayList<String>();
+      
+      while(rs.next()) {
+        output.add("Progress Report: " + rs.getString(1));
+      }
+
+      m.put("records4", output);
+
+    } catch (Exception e) {
+      m.put("message", e.getMessage());
+      return "error";
+    }
+    return "dentprogs";
+  }
+
   @GetMapping("/denttreats")
   public String denttreatsForm(Model model) {
     model.addAttribute("denttreats", new Denttreats());
