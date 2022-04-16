@@ -180,15 +180,15 @@ public class Main {
       String responsible_party_ID = patientRegistry.getResponsible_party_ID(); // IF TIME CHECK IF USER ID EXISTS
 
       //ResultSet rs = stmt.executeQuery("SELECT * FROM appointment WHERE patient_ID = " + patID);
-      stmt.executeUpdate("INSERT INTO userprofile VALUES('" + userID + "','" + first_name+ "','"  + middle_name+ "','"  + last_name+ "','"  + date_of_birth+ "','"  + house_number+ "','"  + street+ "','"  + city+ "','"  + province+ "','"  + ssn+ "','"  + password+ "','"  + responsible_party_ID + "') ON CONFLICT DO NOTHING;");
+      int x = stmt.executeUpdate("INSERT INTO userprofile VALUES('" + userID + "','" + first_name+ "','"  + middle_name+ "','"  + last_name+ "','"  + date_of_birth+ "','"  + house_number+ "','"  + street+ "','"  + city+ "','"  + province+ "','"  + ssn+ "','"  + password+ "','"  + responsible_party_ID + "') ON CONFLICT DO NOTHING;");
       int rs = stmt.executeUpdate("INSERT INTO patient VALUES('" + patID +"','"  + userID + "','"  + gender+ "','"  +insurance+ "','"  +email_address+ "','"  +is_employee+ "','"  +is_fifteen+ "','"  +responsible_party_ID + "') ON CONFLICT DO NOTHING;"); // WHERE patient_ID = " + patID);
 
-      //if (x == 0) {
-      //  throw new Exception("User add failed");
-      //}
+      if (x == 0) {
+        throw new Exception("Conflict in Users, no changes made to user.");
+      }
 
       if (rs == 0) {
-        throw new Exception("Patient add failed.");
+        throw new Exception("Conflict in Patient, no changes made.");
       }
       
       //Write query to check if addition is an employee and if os set is_employee as true before adding
@@ -248,11 +248,48 @@ public class Main {
       int rs = stmt.executeUpdate("INSERT INTO employee VALUES('" + employee_ID + "','"  + user_ID+ "','"  +manager_ID+ "','"  + role+ "','"  +employee_type+ "','"  +salary+ "','"  +email_work+ "','"  +email_personal+ "','"  +phone_extension+ "','"  +furloughed +"') ON CONFLICT DO NOTHING;"); 
       
       if (x == 0) {
-        throw new Exception("User add failed");
+        throw new Exception("Conflict in Users, no changes made to user.");
       }
 
       if (rs == 0) {
-        throw new Exception("Patient add failed.");
+        throw new Exception("Conflict in Employee, no changes made.");
+      }
+
+    } catch (Exception e) {
+      m.put("message", e.getMessage());
+      return "error";
+    }
+    return "receptionist";
+  }
+
+  @PostMapping("/appointmentApps")
+  public String appointmentAppsSubmit(@ModelAttribute AppointmentApps appointmentApps, Model model, Map<String, Object> m) {
+    model.addAttribute("appointmentApps", appointmentApps);
+
+    //String userID = employeeApps.getUser_ID();
+
+    //System.out.println(employeeApps.getEmployee_ID());
+    //System.out.println(userID);
+    
+    try (Connection connection = dataSource.getConnection()) {
+
+      Statement stmt = connection.createStatement();
+
+      String appointment_id = appointmentApps.getAppointment_id();
+      String appointment_type = appointmentApps.getAppointment_type();
+      String date = appointmentApps.getDate();
+      double total_fee_charge = appointmentApps.getTotal_fee_charge();
+      String patient_id = appointmentApps.getPatient_id();
+      String employee_id = appointmentApps.getEmployee_id();
+      String start_time = appointmentApps.getStart_time();
+      String end_time = appointmentApps.getEnd_time();
+      String status = appointmentApps.getStatus();
+      int assigned_room = appointmentApps.getAssigned_room();
+
+      int rs = stmt.executeUpdate("INSERT INTO appointment VALUES('" + appointment_id + "','"  + appointment_type+ "','"  +date+ "','"  + total_fee_charge+ "','"  +patient_id+ "','"  +employee_id+ "','"  +start_time+ "','"  +end_time+ "','"  +status+ "','"  +assigned_room +"') ON CONFLICT DO NOTHING;");
+
+      if (rs == 0) {
+        throw new Exception("Conflict in appointment, no appointment added.");
       }
 
     } catch (Exception e) {
