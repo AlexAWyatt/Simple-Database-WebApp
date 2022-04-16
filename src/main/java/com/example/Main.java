@@ -179,7 +179,7 @@ public class Main {
       String responsible_party_ID = patientRegistry.getResponsible_party_ID(); // IF TIME CHECK IF USER ID EXISTS
 
       //ResultSet rs = stmt.executeQuery("SELECT * FROM appointment WHERE patient_ID = " + patID);
-      int x = stmt.executeUpdate("IF NOT EXIST (SELECT * FROM userprofile WHERE user_id = '" + userID + "') BEGIN INSERT INTO userprofile VALUES('" + userID + "','" + first_name+ "','"  + middle_name+ "','"  + last_name+ "','"  + date_of_birth+ "','"  + house_number+ "','"  + street+ "','"  + city+ "','"  + province+ "','"  + ssn+ "','"  + password+ "','"  + responsible_party_ID + "' END);");
+      int x = stmt.executeUpdate("BEGIN IF NOT EXIST (SELECT * FROM userprofile WHERE user_id = '" + userID + "') BEGIN INSERT INTO userprofile VALUES('" + userID + "','" + first_name+ "','"  + middle_name+ "','"  + last_name+ "','"  + date_of_birth+ "','"  + house_number+ "','"  + street+ "','"  + city+ "','"  + province+ "','"  + ssn+ "','"  + password+ "','"  + responsible_party_ID + "' )END END;");
       int rs = stmt.executeUpdate("INSERT INTO patient VALUES('" + patID +"','"  + userID + "','"  + gender+ "','"  +insurance+ "','"  +email_address+ "','"  +is_employee+ "','"  +is_fifteen+ "','"  +responsible_party_ID + "');"); // WHERE patient_ID = " + patID);
 
       if (x == 0) {
