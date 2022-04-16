@@ -7,7 +7,6 @@ public class PatientRegistry {
     private String email_address;
     private String gender;
     private String insurance;
-    private boolean is_employee;
     private boolean is_fifteen;
     private String responsible_party_ID;
     private String user_ID;
@@ -57,14 +56,6 @@ public class PatientRegistry {
 
     public void setInsurance(String insurance) {
         this.insurance = insurance;
-    }
-
-    public boolean getIs_employee() {
-        return is_employee;
-    }
-
-    public void setIs_employee(boolean is_employee) {
-        this.is_employee = is_employee;
     }
 
     public boolean getIs_fifteen() {

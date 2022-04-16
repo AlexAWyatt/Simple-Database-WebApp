@@ -144,16 +144,37 @@ public class Main {
       String gender = patientRegistry.getGender();
       String insurance = patientRegistry.getInsurance();
       String email_address = patientRegistry.getEmail_address();
-      boolean is_employee = patientRegistry.getIs_employee();
+      boolean is_employee = false;
       boolean is_fifteen = patientRegistry.getIs_fifteen();
-      String responsible_party_ID = patientRegistry.getResponsible_party_ID();
+
+      //user profile stuff
+      String first_name = patientRegistry.getFirst_name();
+      String last_name = patientRegistry.getLast_name();
+      String middle_name = patientRegistry.getMiddle_name();
+      String city = patientRegistry.getCity();
+      String province = patientRegistry.getProvince();;
+      String street =  patientRegistry.getStreet();
+      String house_number = patientRegistry.getHouse_number();
+      String ssn = patientRegistry.getSsn();
+      String date_of_birth = patientRegistry.getDate_of_birth();
+      String password = patientRegistry.getPassword();
+      String responsible_party_ID = patientRegistry.getResponsible_party_ID(); // IF TIME CHECK IF USER ID EXISTS
 
       //ResultSet rs = stmt.executeQuery("SELECT * FROM appointment WHERE patient_ID = " + patID);
+      int x = stmt.executeUpdate("INSERT INTO userprofile VALUES(" + userID + "," + first_name+ "," + middle_name+ "," + last_name+ "," + date_of_birth+ "," + house_number+ "," + street+ "," + city+ "," + province+ "," + ssn+ "," + password+ "," + responsible_party_ID + ");");
       int rs = stmt.executeUpdate("INSERT INTO patient VALUES(" + patID +"," + userID + "," + gender+ "," +insurance+ "," +email_address+ "," +is_employee+ "," +is_fifteen+ "," +responsible_party_ID + ";)"); // WHERE patient_ID = " + patID);
 
-      if (rs == 0) {
-        throw new Exception("Did not add patient");
+      if (x == 0) {
+        throw new Exception("User add failed");
       }
+
+      if (rs == 0) {
+        throw new Exception("Patient add failed.");
+      }
+      
+      //Write query to check if addition is an employee and if os set is_employee as true before adding
+      // SET AS FALSE FOR NOW
+
 
     } catch (Exception e) {
       m.put("message", e.getMessage());
@@ -188,7 +209,6 @@ public class Main {
       // taken from user_profile
       String first_name = employeeApps.getFirst_name();
       String last_name = employeeApps.getLast_name();
-
       String middle_name = employeeApps.getMiddle_name();
       String city = employeeApps.getCity();
       String province = employeeApps.getProvince();;
@@ -197,9 +217,9 @@ public class Main {
       String ssn = employeeApps.getSsn();
       String date_of_birth = employeeApps.getDate_of_birth();
       String password = employeeApps.getPassword();
-      String responsible_party_id = employeeApps.getResponsible_party_ID();
+      String responsible_party_ID = null;
 
-      int x = stmt.executeUpdate("INSERT INTO user_profile VALUES(...vars)");
+      int x = stmt.executeUpdate("INSERT INTO userprofile VALUES(" + user_ID + "," + first_name+ "," + middle_name+ "," + last_name+ "," + date_of_birth+ "," + house_number+ "," + street+ "," + city+ "," + province+ "," + ssn+ "," + password+ "," + responsible_party_ID + ");");
       int rs = stmt.executeUpdate("INSERT INTO employee VALUES(" + employee_ID + "," + user_ID+ "," +manager_ID+ "," + role+ "," +employee_type+ "," +salary+ "," +email_work+ "," +email_personal+ "," +phone_extension+ "," +furloughed +";)"); 
       
 
