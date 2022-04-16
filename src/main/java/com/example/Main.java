@@ -67,6 +67,48 @@ public class Main {
     return "branchui";
   }
 
+  @GetMapping("/patientapproc")
+  public String patientapprocForm(Model model) {
+    model.addAttribute("patientapproc", new Patientapproc());
+    return "dentappts";
+  }
+
+
+  @PostMapping("/patientapproc")
+  public String patientapprocSubmit(@ModelAttribute Patientapproc patientapproc, Model model, Map<String, Object> m) {
+    model.addAttribute("patientapproc", patientapproc);
+    String apptID = patientapproc.getAppointment_ID();
+
+    // EDIT ALL BELOW THIS
+
+    //System.out.println(patientApps.getPatient_ID());
+    try (Connection connection = dataSource.getConnection()) {
+      Statement stmt = connection.createStatement();
+      ResultSet rs = stmt.executeQuery(" '" + apptID + "');");
+
+      if (isRSEmpty(rs)) {
+        return "empty";
+      } // If no results returned send to empty result page
+
+     // ResultSet size = stmt.executeQuery("SELECT COUNT(*) FROM appointment WHERE appointment.patient_id = '" + patID + "';");
+      //size.next();
+
+      ArrayList<String> output = new ArrayList<String>();
+      
+      while(rs.next()) {
+        output.add("Appointment Type: " + rs.getString(1) + "      Date: " + rs.getString(2) + "      Status: " + rs.getString(3) + "      Appointment ID: " + rs.getString(4));
+      }
+
+      m.put("records5", output);
+
+    } catch (Exception e) {
+      m.put("message", e.getMessage());
+      return "error";
+    }
+    return "dentappts"; // MAKE THIS html
+  }
+
+
   @RequestMapping("/db")
   String db(Map<String, Object> model) {
     try (Connection connection = dataSource.getConnection()) {
@@ -181,8 +223,6 @@ public class Main {
     model.addAttribute("patientprog", patientprog);
     String usrID = patientprog.getUser_ID();
 
-    // EDIT ALL BELOW THIS
-
     //System.out.println(patientApps.getPatient_ID());
     try (Connection connection = dataSource.getConnection()) {
       Statement stmt = connection.createStatement();
@@ -221,7 +261,6 @@ public class Main {
     model.addAttribute("patientappts", patientappts);
     String usrID = patientappts.getUser_ID();
 
-    // EDIT ALL BELOW THIS
 
     //System.out.println(patientApps.getPatient_ID());
     try (Connection connection = dataSource.getConnection()) {
@@ -269,11 +308,11 @@ public class Main {
     try (Connection connection = dataSource.getConnection()) {
 
       //DELETE BAD ENTRIES
-      Statement stmt2 = connection.createStatement();
-      stmt2.executeUpdate("DELETE FROM patient WHERE email_address = 'null';");
-      stmt2.executeUpdate("DELETE FROM patient WHERE email_address = '12345694';");
-      stmt2.executeUpdate("DELETE FROM userprofile WHERE user_id = 'null';");
-      stmt2.executeUpdate("DELETE FROM userprofile WHERE user_id = '002314111';");
+      //Statement stmt2 = connection.createStatement();
+      //stmt2.executeUpdate("DELETE FROM patient WHERE email_address = 'null';");
+      //stmt2.executeUpdate("DELETE FROM patient WHERE email_address = '12345694';");
+      //stmt2.executeUpdate("DELETE FROM userprofile WHERE user_id = 'null';");
+      //stmt2.executeUpdate("DELETE FROM userprofile WHERE user_id = '002314111';");
 
       Statement stmt = connection.createStatement();
 
