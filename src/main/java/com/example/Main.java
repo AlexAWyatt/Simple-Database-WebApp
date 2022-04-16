@@ -83,7 +83,7 @@ public class Main {
     try (Connection connection = dataSource.getConnection()) {
       Statement stmt = connection.createStatement();
 
-      ResultSet rs = stmt.executeQuery("SELECT treatment_type, tooth_involved, symptoms, comments, result, medication_rx_number FROM treatment WHERE treatment.treatment_id = '" + trtID + "');");
+      ResultSet rs = stmt.executeQuery("SELECT treatment_type, tooth_involved, symptoms, comments, result, medication_rx_number FROM treatment WHERE treatment.treatment_id = '" + trtID + "';");
 
       if (isRSEmpty(rs)) {
         return "empty";
@@ -134,7 +134,7 @@ public class Main {
       ArrayList<String> output = new ArrayList<String>();
       
       while(rs.next()) {
-        output.add("Procedure Type: " + rs.getString(1) + "      Description: " + rs.getString(2) + "      Treatment ID: " + rs.getString(3) + "      Appointment ID: " + rs.getString(4));
+        output.add("Procedure Type: " + rs.getString(1) + "      Description: " + rs.getString(2) + "      Treatment ID: " + rs.getString(3));
       }
 
       m.put("records9", output);
