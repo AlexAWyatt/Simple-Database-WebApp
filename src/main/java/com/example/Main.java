@@ -149,6 +149,11 @@ public class Main {
 
     try (Connection connection = dataSource.getConnection()) {
 
+      //DELETE BAD ENTRIES
+      Statement stmt2 = connection.createStatement();
+      stmt2.executeUpdate("DELETE FROM patient WHERE email_address = 'null';");
+      stmt2.executeUpdate("DELETE FROM userprofile WHERE user_id = 'null';");
+
       Statement stmt = connection.createStatement();
 
       String patID = patientRegistry.getPatient_ID();
