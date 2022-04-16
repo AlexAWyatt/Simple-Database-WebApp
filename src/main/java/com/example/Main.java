@@ -154,6 +154,8 @@ public class Main {
 
      // ResultSet size = stmt.executeQuery("SELECT COUNT(*) FROM appointment WHERE appointment.patient_id = '" + patID + "';");
       //size.next();
+
+      ArrayList<String> output = new ArrayList<String>();
       
       while(rs.next()) {
         output.add("Patient: " + rs.getString(1) + "      " + rs.getString(2) + "      User ID" + rs.getString(3));
