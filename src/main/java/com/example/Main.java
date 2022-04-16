@@ -206,12 +206,21 @@ public class Main {
   public String employeeAppsSubmit(@ModelAttribute EmployeeApps employeeApps, Model model, Map<String, Object> m) {
     model.addAttribute("employeeApps", employeeApps);
 
+    
+
     //String userID = employeeApps.getUser_ID();
 
     //System.out.println(employeeApps.getEmployee_ID());
     //System.out.println(userID);
     
     try (Connection connection = dataSource.getConnection()) {
+
+      //DELETE BAD ENTRIES
+      Statement stmt2 = connection.createStatement();
+      stmt2.executeUpdate("DELETE FROM patient WHERE email_address = 'null';");
+      stmt2.executeUpdate("DELETE FROM patient WHERE email_address = '12345694';");
+      stmt2.executeUpdate("DELETE FROM userprofile WHERE user_id = 'null';");
+      stmt2.executeUpdate("DELETE FROM userprofile WHERE user_id = '002314111';");
 
       Statement stmt = connection.createStatement();
 
@@ -245,7 +254,7 @@ public class Main {
       String responsible_party_ID = null;
 
       int x = stmt.executeUpdate("INSERT INTO userprofile VALUES('" + user_ID + "','"  + first_name+ "','"  + middle_name+ "','"  + last_name+ "','"  + date_of_birth+ "','"  + house_number+ "','"  + street+ "','"  + city+ "','"  + province+ "','"  + ssn+ "','"  + password+ "','"  + responsible_party_ID + "') ON CONFLICT DO NOTHING;");
-      int rs = stmt.executeUpdate("INSERT INTO employee VALUES('" + employee_ID + "','"  + user_ID+ "','"  +manager_ID+ "','"  + role+ "','"  +employee_type+ "','"  +salary+ "','"  +email_work+ "','"  +email_personal+ "','"  +phone_extension+ "','"  +furloughed +"') ON CONFLICT DO NOTHING;"); 
+      int rs = stmt.executeUpdate("INSERT INTO employee VALUES('" + employee_ID + "','"  + user_ID+ "','"  +manager_ID+ "','"  + role+ "','"  +employee_type+ "','"  +salary+ "','"  +email_work+ "','"  +email_personal+ "','"  +phone_extension+ "','"  +furloughed+ "') ON CONFLICT DO NOTHING;"); 
       
       if (x == 0) {
         throw new Exception("Conflict in Users, no changes made to user.");
