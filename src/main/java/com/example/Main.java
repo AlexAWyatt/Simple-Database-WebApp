@@ -70,10 +70,10 @@ public class Main {
   @GetMapping("/patientapptsme")
   public String patientapptsmeForm(Model model) {
     model.addAttribute("patientapptsme", new Patientapptsme());
-    return "dentpats";
+    return "patient";
   }
 
-  @PostMapping("/patientappts")
+  @PostMapping("/patientapptsme")
   public String patientapptsmeSubmit(@ModelAttribute Patientapptsme patientapptsme, Model model, Map<String, Object> m) {
     model.addAttribute("patientapptsme", patientapptsme);
     String patID = patientapptsme.getPatient_ID();

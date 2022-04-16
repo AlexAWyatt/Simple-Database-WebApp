@@ -1,7 +1,14 @@
 com\example\Main.class
+com\example\Patientprogme.class
 com\example\EmployeeApps.class
 com\example\PatientRegistry.class
 com\example\BranchEmploy.class
+com\example\Denttreats.class
+com\example\Patientprog.class
 com\example\PatientApps.class
 com\example\AppointmentApps.class
+com\example\Patientapproc.class
 com\example\TreatmentApps.class
+com\example\Patientdent.class
+com\example\Patientapptsme.class
+com\example\Patientappts.class
