@@ -3,13 +3,13 @@ package com.example;
 public class PatientRegistry {
 
     private String firstname;
+    private String user_ID;
     private String middlename;
     private String email_address;
     private String gender;
     private String insurance;
     private boolean is_fifteen;
     private String responsible_party_ID;
-    private String user_ID;
     private String patient_ID;
 
     // taken from user_profile
@@ -78,7 +78,7 @@ public class PatientRegistry {
         return user_ID;
     }
 
-    public void setUser_id(String user_ID) {
+    public void setUser_ID(String user_ID) {
         this.user_ID = user_ID;
     }
 

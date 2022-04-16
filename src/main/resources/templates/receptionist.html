@@ -6,78 +6,28 @@
   <title>Receptionist UI</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
-<!--- TESTING COMMENTING THIS OUT  -->
-<!--- <p>Add/Edit Patient Information and Set Patient Appointments-->
-
-    <!--- CHANGE THESE LINKS TO PROPER PAGES ONCE CREATED!!-->
-
-<!--- <p><a type="button" class="btn btn-lg btn-default" href="/index">Return To Homepage</a>
-<head><h2>Register New Patient</h2></head>-->
-
-<!--<body>
-  <form>
-    <table>
-      <p>>Email Address: 
-      <input type="text" email="">
-    </table>
-  </form>
-</body>-->
 
 
-
-
-  <!--<p th:text="'firstname: ' + ${patreg.firstname}" />
-  
-    <form action="#" th:action="@{/patreg}" th:object="${patreg}" method="post">
-    <p>First Name: <input type="text" th:field="*{firstname}}" /> Middle Name: <input type="text" field="*{middlename}" />
-    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" />
-  </form>
-  
-  <form action="#" th:action="@{/patreg}" th:object="${patreg}" method="post">
-    <p>First Name: <input type="text" th:field="*{firstname}" /> Middle Name: <input type="text" field="*{middlename}" />
-    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" />
-  </form>-->
-
-
-  
 <!-- Add a patient-->
 <h1>Add a New Patient</h1>
 <form action="/patientRegistry" method="post">
-  <table>
-    <p>Patient ID: <input type="text" name="patient_ID" id="patient_ID"></p>
-    <p>User ID: 
-    <input type="text" id="user_ID" name="user_ID" value ></p>
-    <p>Gender: 
-    <input type="text" name="gender" id="gender"></p>
-    <p>Insurance: 
-    <input type="text" name="insurance" id= "insurance"></p><!-- ADD PROPER SYNTAX HERE-->
-    <p>Email Address: 
-    <input type="text" name="email" id="email"></p>
-    <p>Responsible Party ID: 
-    <input type="text" name="responsible_party_ID" id="responsible_party_ID"></p>
-    <p>First Name: 
-    <input type="text" name="first_name" id="first_name"></p>
-    <p>Middle Name: 
-    <input type="text" name="middle_name" id="middle_name"></p>
-    <p>Last Name: 
-    <input type="text" name="last_name" id="last_name"></p>
-    <p>Date of Birth: 
-    <input type="text" name="date_of_birth" id="date_of_birth"></p> <!-- ADD PROPER SYNTAX HERE-->
-    <p>House Number: 
-    <input type="text" name="house_number" id="house_number"></p>
-    <p>Street: 
-    <input type="text" name="street" id="street"></p>
-    <p>City: 
-    <input type="text" name="city" id="city"></p>
-    <p>Province: 
-    <input type="text" name="province" id="province"></p>
-    <p>Social Security Number: 
-    <input type="text" name="ssn" id="ssn"></p>
-    <p>Password: 
-    <input type="text" name="password" id="password"></p>
-    <p>
-    <input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-  </table>
+  <p>Patient ID: <input type="text" name="patient_ID" id="patient_ID" /></p>
+  <p>User ID: <input type="text" name="user_ID" id="user_ID"></p>
+  <p>Gender: <input type="text" name="gender" id="gender" /></p>
+  <p>Insurance: <input type="text" name="insurance" id= "insurance" /></p><!-- ADD PROPER SYNTAX HERE-->
+  <p>Email Address: <input type="text" name="email" id="email" /></p>
+  <p>Responsible Party ID: <input type="text" name="responsible_party_ID" id="responsible_party_ID" /></p>
+  <p>First Name: <input type="text" name="first_name" id="first_name" /></p>
+  <p>Middle Name: <input type="text" name="middle_name" id="middle_name" /></p>
+  <p>Last Name: <input type="text" name="last_name" id="last_name" /></p>
+  <p>Date of Birth: <input type="text" name="date_of_birth" id="date_of_birth" /></p> <!-- ADD PROPER SYNTAX HERE-->
+  <p>House Number: <input type="text" name="house_number" id="house_number" /></p>
+  <p>Street: <input type="text" name="street" id="street" /></p>
+  <p>City: <input type="text" name="city" id="city" /></p>
+  <p>Province: <input type="text" name="province" id="province" /></p>
+  <p>Social Security Number: <input type="text" name="ssn" id="ssn" /></p>
+  <p>Password: <input type="text" name="password" id="password" /></p>
+  <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 </form>
 
 <!--Add a new employee-->

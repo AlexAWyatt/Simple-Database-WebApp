@@ -132,9 +132,21 @@ public class Main {
     return "upcomingappspat";
   }
 
+  @GetMapping("/patientRegistry")
+  public String patientRegistryForm(Model model) {
+    model.addAttribute("patientRegistry", new PatientRegistry());
+    return "receptionist";
+  }
+
   @PostMapping("/patientRegistry")
   public String patientRegistrySubmit(@ModelAttribute PatientRegistry patientRegistry, Model model, Map<String, Object> m) {
     model.addAttribute("patientRegistry", patientRegistry);
+    //String userID = patientRegistry.getUser_ID();
+
+    //System.out.println(patientRegistry.getPatient_ID());
+    //System.out.println(userID);
+    //System.out.println(patientRegistry.getGender());
+
     try (Connection connection = dataSource.getConnection()) {
 
       Statement stmt = connection.createStatement();
@@ -186,6 +198,12 @@ public class Main {
   @PostMapping("/employeeApps")
   public String employeeAppsSubmit(@ModelAttribute EmployeeApps employeeApps, Model model, Map<String, Object> m) {
     model.addAttribute("employeeApps", employeeApps);
+
+    //String userID = employeeApps.getUser_ID();
+
+    //System.out.println(employeeApps.getEmployee_ID());
+    //System.out.println(userID);
+    
     try (Connection connection = dataSource.getConnection()) {
 
       Statement stmt = connection.createStatement();
