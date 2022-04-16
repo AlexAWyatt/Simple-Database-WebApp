@@ -180,8 +180,8 @@ public class Main {
       String responsible_party_ID = patientRegistry.getResponsible_party_ID(); // IF TIME CHECK IF USER ID EXISTS
 
       //ResultSet rs = stmt.executeQuery("SELECT * FROM appointment WHERE patient_ID = " + patID);
-      stmt.executeUpdate("INSERT INTO userprofile VALUES('" + userID + "','" + first_name+ "','"  + middle_name+ "','"  + last_name+ "','"  + date_of_birth+ "','"  + house_number+ "','"  + street+ "','"  + city+ "','"  + province+ "','"  + ssn+ "','"  + password+ "','"  + responsible_party_ID + "') ON CONFLICT DO UPDATE;");
-      int rs = stmt.executeUpdate("INSERT INTO patient VALUES('" + patID +"','"  + userID + "','"  + gender+ "','"  +insurance+ "','"  +email_address+ "','"  +is_employee+ "','"  +is_fifteen+ "','"  +responsible_party_ID + "') ON CONFLICT DO UPDATE;"); // WHERE patient_ID = " + patID);
+      stmt.executeUpdate("INSERT INTO userprofile VALUES('" + userID + "','" + first_name+ "','"  + middle_name+ "','"  + last_name+ "','"  + date_of_birth+ "','"  + house_number+ "','"  + street+ "','"  + city+ "','"  + province+ "','"  + ssn+ "','"  + password+ "','"  + responsible_party_ID + "') ON CONFLICT DO NOTHING;");
+      int rs = stmt.executeUpdate("INSERT INTO patient VALUES('" + patID +"','"  + userID + "','"  + gender+ "','"  +insurance+ "','"  +email_address+ "','"  +is_employee+ "','"  +is_fifteen+ "','"  +responsible_party_ID + "') ON CONFLICT DO NOTHING;"); // WHERE patient_ID = " + patID);
 
       //if (x == 0) {
       //  throw new Exception("User add failed");
@@ -244,8 +244,8 @@ public class Main {
       String password = employeeApps.getPassword();
       String responsible_party_ID = null;
 
-      int x = stmt.executeUpdate("INSERT INTO userprofile VALUES('" + user_ID + "','"  + first_name+ "','"  + middle_name+ "','"  + last_name+ "','"  + date_of_birth+ "','"  + house_number+ "','"  + street+ "','"  + city+ "','"  + province+ "','"  + ssn+ "','"  + password+ "','"  + responsible_party_ID + "') ON CONFLICT DO UPDATE;");
-      int rs = stmt.executeUpdate("INSERT INTO employee VALUES('" + employee_ID + "','"  + user_ID+ "','"  +manager_ID+ "','"  + role+ "','"  +employee_type+ "','"  +salary+ "','"  +email_work+ "','"  +email_personal+ "','"  +phone_extension+ "','"  +furloughed +"') ON CONFLICT DO UPDATE;"); 
+      int x = stmt.executeUpdate("INSERT INTO userprofile VALUES('" + user_ID + "','"  + first_name+ "','"  + middle_name+ "','"  + last_name+ "','"  + date_of_birth+ "','"  + house_number+ "','"  + street+ "','"  + city+ "','"  + province+ "','"  + ssn+ "','"  + password+ "','"  + responsible_party_ID + "') ON CONFLICT DO NOTHING;");
+      int rs = stmt.executeUpdate("INSERT INTO employee VALUES('" + employee_ID + "','"  + user_ID+ "','"  +manager_ID+ "','"  + role+ "','"  +employee_type+ "','"  +salary+ "','"  +email_work+ "','"  +email_personal+ "','"  +phone_extension+ "','"  +furloughed +"') ON CONFLICT DO NOTHING;"); 
       
       if (x == 0) {
         throw new Exception("User add failed");
