@@ -202,6 +202,12 @@ public class Main {
     return "receptionist";
   }
 
+  @GetMapping("/employeeApps")
+  public String employeeAppsForm(Model model) {
+    model.addAttribute("employeeApps", new EmployeeApps());
+    return "receptionist";
+  }
+
   @PostMapping("/employeeApps")
   public String employeeAppsSubmit(@ModelAttribute EmployeeApps employeeApps, Model model, Map<String, Object> m) {
     model.addAttribute("employeeApps", employeeApps);
@@ -211,16 +217,10 @@ public class Main {
     //String userID = employeeApps.getUser_ID();
 
     //System.out.println(employeeApps.getEmployee_ID());
+    //System.out.println(employeeApps.getSalary());
     //System.out.println(userID);
     
     try (Connection connection = dataSource.getConnection()) {
-
-      //DELETE BAD ENTRIES
-      Statement stmt2 = connection.createStatement();
-      stmt2.executeUpdate("DELETE FROM patient WHERE email_address = 'null';");
-      stmt2.executeUpdate("DELETE FROM patient WHERE email_address = '12345694';");
-      stmt2.executeUpdate("DELETE FROM userprofile WHERE user_id = 'null';");
-      stmt2.executeUpdate("DELETE FROM userprofile WHERE user_id = '002314111';");
 
       Statement stmt = connection.createStatement();
 
@@ -271,6 +271,12 @@ public class Main {
     return "receptionist";
   }
 
+  @GetMapping("/appointmentApps")
+  public String appointmentAppsForm(Model model) {
+    model.addAttribute("appointmentApps", new AppointmentApps());
+    return "receptionist";
+  }
+
   @PostMapping("/appointmentApps")
   public String appointmentAppsSubmit(@ModelAttribute AppointmentApps appointmentApps, Model model, Map<String, Object> m) {
     model.addAttribute("appointmentApps", appointmentApps);
@@ -307,29 +313,6 @@ public class Main {
     }
     return "receptionist";
   }
-  
-  /*@PostMapping("/procedureApps")
-  public String patientAppsSubmit(@ModelAttribute ProcedureApps procedureApps, Model model, Map<String, Object> m) {
-    model.addAttribute("procedureApps", procedureApps);
-    try (Connection connection = dataSource.getConnection()) {
-      Statement stmt = connection.createStatement();
-      //String patID = patientApps.getPatient_ID();
-      //ResultSet rs = stmt.executeQuery("SELECT * FROM appointment WHERE patient_ID = " + patID);
-      ResultSet rs = stmt.executeQuery("SELECT procedure_type FROM appointment_procedure"); // WHERE patient_ID = " + patID);
-
-      ArrayList<String> output = new ArrayList<String>();
-      while(rs.next()) {
-        output.add(rs.getString("procedure_type"));
-      }
-
-      m.put("records2", output);
-
-    } catch (Exception e) {
-      m.put("message", e.getMessage());
-      return "error";
-    }
-    return "procedures_html";
-  }*/
 
   @GetMapping("/branchEmploy")
   public String branchEmployForm(Model model) {
