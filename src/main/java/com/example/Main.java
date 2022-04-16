@@ -131,6 +131,43 @@ public class Main {
     }
     return "upcomingappspat";
   }
+  
+  @GetMapping("/patientdent")
+  public String patientdentForm(Model model) {
+    model.addAttribute("patientdent", new Patientdent());
+    return "dentisthyg";
+  }
+
+  @PostMapping("/patientdent")
+  public String patientdentSubmit(@ModelAttribute Patientdent patientdent, Model model, Map<String, Object> m) {
+    model.addAttribute("patientdent", patientdent);
+    String empID = patientdent.getEmployee_ID();
+
+    //System.out.println(patientApps.getPatient_ID());
+    try (Connection connection = dataSource.getConnection()) {
+      Statement stmt = connection.createStatement();
+      ResultSet rs = stmt.executeQuery("SELECT first_name, last_name, user_id FROM userprofile WHERE userprofile.user_id IN (SELECT user_id FROM patient WHERE patient.patient_id IN (SELECT patient_id FROM appointment WHERE appointment.employee_id = '" + empID + "'));");
+
+      if (isRSEmpty(rs)) {
+        return "empty";
+      } // If no results returned send to empty result page
+
+     // ResultSet size = stmt.executeQuery("SELECT COUNT(*) FROM appointment WHERE appointment.patient_id = '" + patID + "';");
+      //size.next();
+      
+      while(rs.next()) {
+        output.add("Patient: " + rs.getString(1) + "      " + rs.getString(2) + "      User ID" + rs.getString(3));
+      }
+
+      m.put("records3", output);
+
+    } catch (Exception e) {
+      m.put("message", e.getMessage());
+      return "error";
+    }
+    return "dentpats";
+  }
+
 
   @GetMapping("/patientRegistry")
   public String patientRegistryForm(Model model) {
