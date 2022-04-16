@@ -153,6 +153,7 @@ public class Main {
       Statement stmt2 = connection.createStatement();
       stmt2.executeUpdate("DELETE FROM patient WHERE email_address = 'null';");
       stmt2.executeUpdate("DELETE FROM userprofile WHERE user_id = 'null';");
+      stmt2.executeUpdate("DELETE FROM userprofile WHERE user_id = '002314111';");
 
       Statement stmt = connection.createStatement();
 
