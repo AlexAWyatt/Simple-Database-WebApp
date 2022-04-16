@@ -180,8 +180,8 @@ public class Main {
       String responsible_party_ID = patientRegistry.getResponsible_party_ID(); // IF TIME CHECK IF USER ID EXISTS
 
       //ResultSet rs = stmt.executeQuery("SELECT * FROM appointment WHERE patient_ID = " + patID);
-      stmt.executeUpdate("INSERT INTO userprofile VALUES('" + userID + "','" + first_name+ "','"  + middle_name+ "','"  + last_name+ "','"  + date_of_birth+ "','"  + house_number+ "','"  + street+ "','"  + city+ "','"  + province+ "','"  + ssn+ "','"  + password+ "','"  + responsible_party_ID + "') ON CONFLICT DO NOTHING/UPDATE;");
-      int rs = stmt.executeUpdate("INSERT INTO patient VALUES('" + patID +"','"  + userID + "','"  + gender+ "','"  +insurance+ "','"  +email_address+ "','"  +is_employee+ "','"  +is_fifteen+ "','"  +responsible_party_ID + "') ON CONFLICT DO NOTHING/UPDATE;;"); // WHERE patient_ID = " + patID);
+      stmt.executeUpdate("INSERT INTO userprofile VALUES('" + userID + "','" + first_name+ "','"  + middle_name+ "','"  + last_name+ "','"  + date_of_birth+ "','"  + house_number+ "','"  + street+ "','"  + city+ "','"  + province+ "','"  + ssn+ "','"  + password+ "','"  + responsible_party_ID + "') ON CONFLICT UPDATE;");
+      int rs = stmt.executeUpdate("INSERT INTO patient VALUES('" + patID +"','"  + userID + "','"  + gender+ "','"  +insurance+ "','"  +email_address+ "','"  +is_employee+ "','"  +is_fifteen+ "','"  +responsible_party_ID + "') ON CONFLICT UPDATE;;"); // WHERE patient_ID = " + patID);
 
       //if (x == 0) {
       //  throw new Exception("User add failed");
