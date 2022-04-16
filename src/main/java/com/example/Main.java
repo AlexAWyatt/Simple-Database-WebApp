@@ -152,6 +152,7 @@ public class Main {
       //DELETE BAD ENTRIES
       Statement stmt2 = connection.createStatement();
       stmt2.executeUpdate("DELETE FROM patient WHERE email_address = 'null';");
+      stmt2.executeUpdate("DELETE FROM patient WHERE email_address = '12345694';");
       stmt2.executeUpdate("DELETE FROM userprofile WHERE user_id = 'null';");
       stmt2.executeUpdate("DELETE FROM userprofile WHERE user_id = '002314111';");
 
@@ -179,8 +180,8 @@ public class Main {
       String responsible_party_ID = patientRegistry.getResponsible_party_ID(); // IF TIME CHECK IF USER ID EXISTS
 
       //ResultSet rs = stmt.executeQuery("SELECT * FROM appointment WHERE patient_ID = " + patID);
-      int x = stmt.executeUpdate("INSERT INTO userprofile VALUES('" + userID + "','" + first_name+ "','"  + middle_name+ "','"  + last_name+ "','"  + date_of_birth+ "','"  + house_number+ "','"  + street+ "','"  + city+ "','"  + province+ "','"  + ssn+ "','"  + password+ "','"  + responsible_party_ID + "') ON CONFLICT DO NOTHING;");
-      int rs = stmt.executeUpdate("INSERT INTO patient VALUES('" + patID +"','"  + userID + "','"  + gender+ "','"  +insurance+ "','"  +email_address+ "','"  +is_employee+ "','"  +is_fifteen+ "','"  +responsible_party_ID + "');"); // WHERE patient_ID = " + patID);
+      stmt.executeUpdate("INSERT INTO userprofile VALUES('" + userID + "','" + first_name+ "','"  + middle_name+ "','"  + last_name+ "','"  + date_of_birth+ "','"  + house_number+ "','"  + street+ "','"  + city+ "','"  + province+ "','"  + ssn+ "','"  + password+ "','"  + responsible_party_ID + "') ON CONFLICT DO NOTHING/UPDATE;");
+      int rs = stmt.executeUpdate("INSERT INTO patient VALUES('" + patID +"','"  + userID + "','"  + gender+ "','"  +insurance+ "','"  +email_address+ "','"  +is_employee+ "','"  +is_fifteen+ "','"  +responsible_party_ID + "') ON CONFLICT DO NOTHING/UPDATE;;"); // WHERE patient_ID = " + patID);
 
       //if (x == 0) {
       //  throw new Exception("User add failed");
