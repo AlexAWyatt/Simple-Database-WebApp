@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<body>
+<div class="container">
+  <h1>Patient Appointment Procedure Information</h1>
+  <p><a href="/index"></span>Homepage</a></p>
+  <ul th:each="record : ${records9}">
+    <li th:text="${record}"/>
+  </ul>
+</div>
+
+<h1>View Treatment Information</h1> <!-- DELETE IF NOT IMPLEMENTED-->
+<form action="/denttreats" method="post">
+  <p>Treatment ID (Normally 9 digits): <input type="text" id="treatment_ID" name="treatment_ID" value /></p>
+  <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
+
+</body>
+</html>

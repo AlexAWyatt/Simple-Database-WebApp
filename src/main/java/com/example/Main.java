@@ -67,6 +67,48 @@ public class Main {
     return "branchui";
   }
 
+  @GetMapping("/denttreats")
+  public String denttreatsForm(Model model) {
+    model.addAttribute("denttreats", new Denttreats());
+    return "dentprocs";
+  }
+
+
+  @PostMapping("/denttreats")
+  public String denttreatsSubmit(@ModelAttribute Denttreats denttreats, Model model, Map<String, Object> m) {
+    model.addAttribute("denttreats", denttreats);
+    String trtID = denttreats.getTreatment_ID();
+
+    //System.out.println(patientApps.getPatient_ID());
+    try (Connection connection = dataSource.getConnection()) {
+      Statement stmt = connection.createStatement();
+
+      // EDIT BELOW HERE
+
+      ResultSet rs = stmt.executeQuery("SELECT treatment_type, tooth_involved, symptoms, comments, result, medication_rx_number FROM treatment WHERE treatment.treatment_id = '" + trtID + "');");
+
+      if (isRSEmpty(rs)) {
+        return "empty";
+      } // If no results returned send to empty result page
+
+     // ResultSet size = stmt.executeQuery("SELECT COUNT(*) FROM appointment WHERE appointment.patient_id = '" + patID + "';");
+      //size.next();
+
+      ArrayList<String> output = new ArrayList<String>();
+      
+      while(rs.next()) {
+        output.add("Treatment Type: " + rs.getString(1) + "      Tooth Involved: " + rs.getString(2) + "      Symptoms: " + rs.getString(3) + "      Comments: " + rs.getString(4)+ "      Result: " + rs.getString(5)+ "     medication_rx_number: " + rs.getString(6));
+      }
+
+      m.put("records10", output);
+
+    } catch (Exception e) {
+      m.put("message", e.getMessage());
+      return "error";
+    }
+    return "denttreats"; // MAKE this html
+  }
+
   @GetMapping("/patientapproc")
   public String patientapprocForm(Model model) {
     model.addAttribute("patientapproc", new Patientapproc());
@@ -79,12 +121,10 @@ public class Main {
     model.addAttribute("patientapproc", patientapproc);
     String apptID = patientapproc.getAppointment_ID();
 
-    // EDIT ALL BELOW THIS
-
     //System.out.println(patientApps.getPatient_ID());
     try (Connection connection = dataSource.getConnection()) {
       Statement stmt = connection.createStatement();
-      ResultSet rs = stmt.executeQuery(" '" + apptID + "');");
+      ResultSet rs = stmt.executeQuery("SELECT procedure_type, description, treatment_id FROM appointment_procedure WHERE appointment_procedure.appointment_id = '" + apptID + "');");
 
       if (isRSEmpty(rs)) {
         return "empty";
@@ -96,16 +136,16 @@ public class Main {
       ArrayList<String> output = new ArrayList<String>();
       
       while(rs.next()) {
-        output.add("Appointment Type: " + rs.getString(1) + "      Date: " + rs.getString(2) + "      Status: " + rs.getString(3) + "      Appointment ID: " + rs.getString(4));
+        output.add("Procedure Type: " + rs.getString(1) + "      Description: " + rs.getString(2) + "      Treatment ID: " + rs.getString(3) + "      Appointment ID: " + rs.getString(4));
       }
 
-      m.put("records5", output);
+      m.put("records9", output);
 
     } catch (Exception e) {
       m.put("message", e.getMessage());
       return "error";
     }
-    return "dentappts"; // MAKE THIS html
+    return "dentprocs";
   }
 
 
