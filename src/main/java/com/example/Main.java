@@ -97,7 +97,7 @@ public class Main {
       String result = null;
       
       while(rs.next()) {
-        if (rs.getString(5) == "t") {
+        if (rs.getString(5).equals("t")) {
           result = "Success";
         }
         else {
